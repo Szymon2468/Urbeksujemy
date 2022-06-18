@@ -1,0 +1,16 @@
+@import './breakpoints.scss';
+@import 'include-media';
+
+$aquamarineColor: #F1FDEF;
+$lightAquamarineColor: #F8FFF8;
+$pokeColor: #779974;
+$greenColor: #86E486;
+$textColor: #4c4948;
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
