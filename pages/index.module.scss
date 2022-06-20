@@ -1,5 +1,17 @@
 @import '../styles/variables.scss';
 
-body {
-    background-color: $aquamarineColor;
+.swiper {
+  height: 600px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../public/assets/forest.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  margin: 30px;
+  font-size: 28px;
 }

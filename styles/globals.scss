@@ -3,6 +3,17 @@
 @import 'include-media';
 @import './variables.scss';
 @import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+:root {
+  --aquamarine-color: #f1fdef;
+  --light-aquamarine-color: #f8fff8;
+  --poke-color: #779974;
+  --green-color: #86e486;
+  --text-color: #4c4948;
+}
 
 section {
   height: fit-content;
@@ -27,6 +38,10 @@ blockquote,
 dl,
 dd {
   margin: 0;
+}
+
+body {
+  position: relative;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -238,4 +253,107 @@ h3,
 
 .hamburger-react {
   z-index: 10000;
+}
+
+.navbar-collapse {
+  background-color: $pokeColor;
+  display: flex;
+  flex-direction: row !important;
+}
+
+.btn-outline-success {
+  color: $textColor;
+  background-color: transparent;
+  border-color: $textColor;
+}
+
+// .btn-outline-success:hover {
+//   color: $textColor;
+// }
+
+.navbar-nav {
+  @include media('<=nav-break') {
+    flex-direction: row;
+    justify-content: flex-start !important;
+  }
+}
+
+.nav-link {
+  font-weight: 500;
+  font-size: 18px;
+  padding: 20px !important;
+  width: fit-content;
+}
+
+.w3rcontainer {
+  border: 1px solid #cccfdb;
+  border-radius: 2px;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: $textColor;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: $textColor;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: url('../public/assets/forest.jpeg');
+  background: transparent;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 70%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid $pokeColor;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $pokeColor !important;
 }

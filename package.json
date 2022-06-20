@@ -19,10 +19,12 @@
     "next-seo": "^5.4.0",
     "react": "17.0.0",
     "react-bootstrap": "^2.4.0",
+    "react-collapsible": "^2.8.4",
     "react-dom": "17.0.0",
     "react-icons": "^4.3.1",
     "sass": "^1.49.9",
-    "swiper": "^8.1.1",
+    "styled-components": "^5.3.5",
+    "swiper": "^8.2.4",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
