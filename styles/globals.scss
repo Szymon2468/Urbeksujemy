@@ -293,7 +293,11 @@ h3,
 .hover-underline-animation {
   display: inline-block;
   position: relative;
-  color: $textColor;
+  color: $pokeColor;
+
+  @media (min-width: 769px) {
+    color: $textColor;
+  }
 }
 
 .hover-underline-animation:after {
@@ -304,9 +308,13 @@ h3,
   height: 2px;
   bottom: -3px;
   left: 0;
-  background-color: $textColor;
+  background-color: $pokeColor;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
+
+  @media (min-width: 769px) {
+    background-color: $textColor;
+  }
 }
 
 .hover-underline-animation:hover:after {

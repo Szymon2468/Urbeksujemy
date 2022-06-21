@@ -16,6 +16,7 @@ import photo9 from '../public/assets/urbexPhotos/urbexPhoto9.webp';
 import photo10 from '../public/assets/urbexPhotos/urbexPhoto10.webp';
 import photo11 from '../public/assets/urbexPhotos/urbexPhoto11.webp';
 import photo12 from '../public/assets/urbexPhotos/urbexPhoto12.webp';
+import PolandMap from '../public/assets/PolandMap';
 
 export default function Home() {
   return (
@@ -73,13 +74,48 @@ export default function Home() {
         </section>
 
         <section>
-          <div className='container'>
-            <h2 className={styles.title}>
-              Wybierz województwo, które Cię interesuje
-            </h2>
-          </div>
+          <Description />
+        </section>
+
+        <section>
+          <Map />
         </section>
       </main>
     </>
   );
 }
+
+const Description = () => {
+  return (
+    <div className={styles.DescContainer}>
+      <div className={styles.imgContainer}>
+        <img src={photo1.src} alt='photo from an urbex' />
+      </div>
+      <div className={styles.textContainer}>
+        <p>
+          Urbex (z ang. urban exploration — eksploracja miejska) — forma
+          aktywności polegająca na eksplorowaniu opuszczonych, zrujnowanych,
+          zapomnianych, niedostępnych czy ukrytych budynków i instalacji
+          stworzonych przez człowieka. Celem osób uprawiających urbex jest
+          filmowanie, fotografowanie lub po prostu zdobywanie informacji
+          dotyczących danego miejsca. Wszystko odbywa się bez ingerencji w jego
+          stan, zgodnie z zasadą take only pictures, leave only footsteps
+          (zabierz tylko zdjęcia, zostaw tylko ślady stóp).
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const Map = () => {
+  return (
+    <div className='container'>
+      <h2 className={styles.title}>
+        Wybierz województwo, które Cię interesuje
+      </h2>
+      <div className={styles.map}>
+        <PolandMap />
+      </div>
+    </div>
+  );
+};

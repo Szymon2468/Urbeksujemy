@@ -15,3 +15,42 @@
   margin: 30px;
   font-size: 28px;
 }
+
+.container,
+.DescContainer {
+  width: 100%;
+  max-width: 1300px;
+}
+
+.DescContainer {
+  display: flex;
+  margin: 50px auto;
+}
+
+.imgContainer,
+.textContainer {
+  width: 50%;
+}
+
+.imgContainer {
+  img {
+    width: 560px;
+    height: 315px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid $pokeColor;
+  }
+}
+
+.textContainer {
+  display: flex;
+  align-items: center;
+}
+
+.map {
+  width: fit-content;
+  margin: 0 auto;
+
+  width: 700px;
+  height: 700px;
+}
