@@ -280,7 +280,7 @@ h3,
 
 .nav-link {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   padding: 20px !important;
   width: fit-content;
 }
@@ -294,8 +294,9 @@ h3,
   display: inline-block;
   position: relative;
   color: $pokeColor;
+  font-size: 17px;
 
-  @media (min-width: 769px) {
+  @media (min-width: 1025px) {
     color: $textColor;
   }
 }
@@ -312,7 +313,7 @@ h3,
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 
-  @media (min-width: 769px) {
+  @media (min-width: 1025px) {
     background-color: $textColor;
   }
 }

@@ -1,0 +1,26 @@
+@import '../../../styles/variables.scss';
+
+.articleCard {
+  height: fit-content;
+}
+
+.title {
+  color: $textColor;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: $textColor;
+}
+
+.btn {
+  color: $pokeColor;
+
+  &:hover {
+    background-color: #effbee;
+  }
+}

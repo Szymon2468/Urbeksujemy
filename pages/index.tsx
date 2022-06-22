@@ -17,6 +17,7 @@ import photo10 from '../public/assets/urbexPhotos/urbexPhoto10.webp';
 import photo11 from '../public/assets/urbexPhotos/urbexPhoto11.webp';
 import photo12 from '../public/assets/urbexPhotos/urbexPhoto12.webp';
 import PolandMap from '../public/assets/PolandMap';
+import ArticleCard from '../src/components/ArticleCard/ArticleCard';
 
 export default function Home() {
   return (
@@ -74,18 +75,22 @@ export default function Home() {
         </section>
 
         <section>
-          <Description />
+          <DescriptionSection />
         </section>
 
         <section>
-          <Map />
+          <MapSection />
+        </section>
+
+        <section>
+          <RecentArticlesSection />
         </section>
       </main>
     </>
   );
 }
 
-const Description = () => {
+const DescriptionSection = () => {
   return (
     <div className={styles.DescContainer}>
       <div className={styles.imgContainer}>
@@ -107,7 +112,7 @@ const Description = () => {
   );
 };
 
-const Map = () => {
+const MapSection = () => {
   return (
     <div className='container'>
       <h2 className={styles.title}>
@@ -115,6 +120,44 @@ const Map = () => {
       </h2>
       <div className={styles.map}>
         <PolandMap />
+      </div>
+    </div>
+  );
+};
+
+const RecentArticlesSection = () => {
+  return (
+    <div className='container'>
+      <h2 className={styles.title}>
+        Wybierz województwo, które Cię interesuje
+      </h2>
+      <div className={styles.recentArticlesContainer}>
+        <ArticleCard
+          title='Fort Kraków'
+          description='Urbex (z ang. urban exploration — eksploracja miejska) — forma
+          aktywności polegająca na eksplorowaniu opuszczonych, zrujnowanych,
+          zapomnianych, niedostępnych czy ukrytych budynków i instalacji'
+          imgAlt='photo from an urbex'
+          imgUrl={photo1}
+        />
+
+        <ArticleCard
+          title='Fort Kraków'
+          description='Urbex (z ang. urban exploration — eksploracja miejska) — forma
+          aktywności polegająca na eksplorowaniu opuszczonych, zrujnowanych,
+          zapomnianych, niedostępnych czy ukrytych budynków i instalacji'
+          imgAlt='photo from an urbex'
+          imgUrl={photo1}
+        />
+
+        <ArticleCard
+          title='Fort Kraków'
+          description='Urbex (z ang. urban exploration — eksploracja miejska) — forma
+          aktywności polegająca na eksplorowaniu opuszczonych, zrujnowanych,
+          zapomnianych, niedostępnych czy ukrytych budynków i instalacji'
+          imgAlt='photo from an urbex'
+          imgUrl={photo1}
+        />
       </div>
     </div>
   );

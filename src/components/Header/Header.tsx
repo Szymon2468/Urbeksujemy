@@ -42,11 +42,11 @@ const Menu = styled.ul`
     align-items: center;
   }
 
-  li:nth-child(2) {
+  li:last-child(2) {
     margin: 0px 20px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -59,7 +59,7 @@ const NavIcon = styled.button`
   border: none;
   outline: none;
 
-  @media (min-width: 769px) {
+  @media (min-width: 1025px) {
     display: none;
   }
 
@@ -77,7 +77,7 @@ const Line = styled.span`
   background-color: #fff;
   transition: width 0.4s ease-in-out;
 
-  :nth-child(2) {
+  :last-child(2) {
     width: ${(props) => (props.open ? '40%' : '70%')};
   }
 `;
@@ -92,12 +92,12 @@ const Overlay = styled.div`
   // border-bottom: ${(props) =>
     props.open ? 'solid 2px var(--poke-color)' : 'none'};
 
-  @media (min-width: 769px) {
+  @media (min-width: 1025px) {
     display: none;
   }
 
-  @media (max-width: 500px) {
-    height: ${(props) => (props.open ? '220px' : 0)};
+  @media (max-width: 800px) {
+    height: ${(props) => (props.open ? '300px' : 0)};
     display: flex;
     align-items: center;
   }
@@ -117,11 +117,11 @@ const OverlayMenu = styled.ul`
   padding: 0;
   margin: 0;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 100%;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 800px) {
     flex-direction: column;
   }
 
@@ -133,7 +133,7 @@ const OverlayMenu = styled.ul`
     transition: opacity 0.1s ease-in-out;
     height: fit-content;
 
-    @media (max-width: 500px) {
+    @media (max-width: 800px) {
       margin: 10px 0;
     }
   }
@@ -170,7 +170,7 @@ const Form = styled.form`
     width: ${(props) => (props.barOpened ? '14rem' : '2rem')};
   }
 
-  @media (min-width: 769px) {
+  @media (min-width: 1025px) {
     background-color: var(--text-color);
   }
 `;
@@ -193,12 +193,12 @@ const Input = styled.input`
   &::placeholder {
     color: var(--text-color);
 
-    @media (min-width: 769px) {
+    @media (min-width: 1025px) {
       color: var(--poke-color);
     }
   }
 
-  @media (min-width: 769px) {
+  @media (min-width: 1025px) {
     color: var(--poke-color);
   }
 `;
@@ -215,7 +215,7 @@ const Button = styled.button`
   svg {
     fill: var(--text-color);
 
-    @media (min-width: 769px) {
+    @media (min-width: 1025px) {
       fill: var(--poke-color);
     }
   }
@@ -246,6 +246,16 @@ export const Header = () => {
             <img src={logo.src} alt='logo' />
           </Logo>
           <Menu>
+            <Item>
+              <Link target='#' href='https://www.instagram.com/igor_dumencic/'>
+                <p className='hover-underline-animation'>INFORMACJE</p>
+              </Link>
+            </Item>
+            <Item>
+              <Link target='#' href='https://www.instagram.com/igor_dumencic/'>
+                <p className='hover-underline-animation'>MIEJSCA</p>
+              </Link>
+            </Item>
             <Item>
               <Link target='#' href='https://www.instagram.com/igor_dumencic/'>
                 <p className='hover-underline-animation'>RANKING</p>
@@ -299,6 +309,16 @@ export const Header = () => {
       </Nav>
       <Overlay open={toggle}>
         <OverlayMenu open={toggle}>
+          <Item>
+            <Link target='#' href='https://www.instagram.com/igor_dumencic/'>
+              <p className='hover-underline-animation'>INFORMACJE</p>
+            </Link>
+          </Item>
+          <Item>
+            <Link target='#' href='https://www.instagram.com/igor_dumencic/'>
+              <p className='hover-underline-animation'>MIEJSCA</p>
+            </Link>
+          </Item>
           <Item>
             <Link target='#' href='https://www.instagram.com/igor_dumencic/'>
               <p className='hover-underline-animation'>RANKING</p>
