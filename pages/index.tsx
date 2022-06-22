@@ -74,13 +74,13 @@ export default function Home() {
           </Swiper>
         </section>
 
-        <section>
+        {/* <section>
           <DescriptionSection />
-        </section>
+        </section> */}
 
-        <section>
+        {/* <section>
           <MapSection />
-        </section>
+        </section> */}
 
         <section>
           <RecentArticlesSection />
@@ -129,7 +129,7 @@ const RecentArticlesSection = () => {
   return (
     <div className='container'>
       <h2 className={styles.title}>
-        Wybierz województwo, które Cię interesuje
+        Przeglądaj ostatnio odwiedzine przez nas miejsca
       </h2>
       <div className={styles.recentArticlesContainer}>
         <ArticleCard
