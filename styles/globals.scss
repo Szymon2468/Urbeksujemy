@@ -366,3 +366,12 @@ h3,
 .swiper-pagination-bullet-active {
   background-color: $pokeColor !important;
 }
+
+.MuiCardActions-root {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.MuiCardMedia-root {
+  width: 100%;
+}

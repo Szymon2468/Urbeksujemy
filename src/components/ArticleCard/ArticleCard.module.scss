@@ -24,3 +24,20 @@
     background-color: #effbee;
   }
 }
+
+.HorizontalArticleCard {
+  display: flex;
+}
+
+.cardContentContainer {
+  width: 50%;
+}
+
+.horizontalDescription {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: $textColor;
+}

@@ -18,8 +18,17 @@ import photo11 from '../public/assets/urbexPhotos/urbexPhoto11.webp';
 import photo12 from '../public/assets/urbexPhotos/urbexPhoto12.webp';
 import PolandMap from '../public/assets/PolandMap';
 import ArticleCard from '../src/components/ArticleCard/ArticleCard';
+import { sanityClient } from '../sanity';
+import { IArticle } from './index.def';
+import { uuid } from 'uuidv4';
+import urlBuilder from '@sanity/image-url';
 
-export default function Home() {
+interface IHomeProps {
+  articles: IArticle[];
+}
+
+export default function Home({ articles }: IHomeProps) {
+  console.log(articles);
   return (
     <>
       <main>
@@ -83,7 +92,7 @@ export default function Home() {
         </section> */}
 
         <section>
-          <RecentArticlesSection />
+          <RecentArticlesSection articles={articles} />
         </section>
       </main>
     </>
@@ -125,40 +134,57 @@ const MapSection = () => {
   );
 };
 
-const RecentArticlesSection = () => {
+const RecentArticlesSection = ({ articles }: IHomeProps) => {
   return (
     <div className='container'>
       <h2 className={styles.title}>
         Przeglądaj ostatnio odwiedzine przez nas miejsca
       </h2>
       <div className={styles.recentArticlesContainer}>
-        <ArticleCard
-          title='Fort Kraków'
-          description='Urbex (z ang. urban exploration — eksploracja miejska) — forma
-          aktywności polegająca na eksplorowaniu opuszczonych, zrujnowanych,
-          zapomnianych, niedostępnych czy ukrytych budynków i instalacji'
-          imgAlt='photo from an urbex'
-          imgUrl={photo1}
-        />
-
-        <ArticleCard
-          title='Fort Kraków'
-          description='Urbex (z ang. urban exploration — eksploracja miejska) — forma
-          aktywności polegająca na eksplorowaniu opuszczonych, zrujnowanych,
-          zapomnianych, niedostępnych czy ukrytych budynków i instalacji'
-          imgAlt='photo from an urbex'
-          imgUrl={photo1}
-        />
-
-        <ArticleCard
-          title='Fort Kraków'
-          description='Urbex (z ang. urban exploration — eksploracja miejska) — forma
-          aktywności polegająca na eksplorowaniu opuszczonych, zrujnowanych,
-          zapomnianych, niedostępnych czy ukrytych budynków i instalacji'
-          imgAlt='photo from an urbex'
-          imgUrl={photo1}
-        />
+        {articles.map((el) => (
+          <ArticleCard
+            key={uuid()}
+            title={el.place.placeName}
+            description={el.teaser}
+            imgAlt={el.mainImage.alt}
+            imgUrl={
+              urlBuilder(sanityClient).image(el.mainImage).url() as string
+            }
+          />
+        ))}
       </div>
     </div>
   );
+};
+
+export const getStaticProps = async (context: any) => {
+  const articles = await sanityClient.fetch(`
+    *[
+      _type == "articles" && date < now()
+    ] | order(date desc)[] {
+      author->{name},
+      content,
+      date,
+      mainImage,
+      place->{
+        placeName,
+        city->{
+          city,
+          state->{state}
+        },
+        coords,
+        ourRating,
+        date,
+        description,
+        article,
+        photos
+      },
+      seoDesc,
+      seoKeyWords,
+      slug,
+      teaser,
+      title,
+    }[0..5]
+  `);
+  return { props: { articles } };
 };

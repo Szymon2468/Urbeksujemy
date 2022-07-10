@@ -10,7 +10,7 @@ import styles from './ArticleCard.module.scss';
 export default function ArticleCard({ title, imgUrl, imgAlt, description }) {
   return (
     <Card sx={{ maxWidth: 300 }} className={styles.articleCard}>
-      <CardMedia component='img' height='180' image={imgUrl.src} alt={imgAlt} />
+      <CardMedia component='img' height='180' image={imgUrl} alt={imgAlt} />
       <CardContent>
         <Typography
           gutterBottom

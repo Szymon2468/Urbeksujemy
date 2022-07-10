@@ -1,0 +1,31 @@
+export const getStaticProps = async (context: any) => {
+  const articles = await sanityClient.fetch(`
+    *[
+      _type == "articles" && date < now()
+    ][] {
+      author->,
+      content,
+      date,
+      mainImage,
+      place->{
+        placeName,
+        city->{
+          city,
+          state->{state}
+        },
+        coords,
+        ourRating,
+        date,
+        description,
+        article,
+        photos
+      },
+      seoDesc,
+      seoKeyWords,
+      slug,
+      teaser,
+      title,
+    }
+  `);
+  return { props: { articles } };
+};

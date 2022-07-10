@@ -23,6 +23,11 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  z-index: 9999999999999;
+
+  h1:hover {
+    cursor: pointer;
+  }
 `;
 
 const Logo = styled.h1`
@@ -51,7 +56,32 @@ const Menu = styled.ul`
   }
 `;
 
-const Item = styled.li``;
+const Item = styled.li`
+  &:hover {
+    cursor: ${(props) =>
+      !props.overlay || (props.overlay && props.open) ? 'pointer' : 'default'};
+  }
+
+  a:hover {
+    cursor: ${(props) =>
+      !props.overlay || (props.overlay && props.open) ? 'pointer' : 'default'};
+  }
+
+  p:hover {
+    cursor: ${(props) =>
+      !props.overlay || (props.overlay && props.open) ? 'pointer' : 'default'};
+  }
+
+  form:hover {
+    cursor: ${(props) =>
+      !props.overlay || (props.overlay && props.open) ? 'pointer' : 'default'};
+  }
+
+  button:hover {
+    cursor: ${(props) =>
+      !props.overlay || (props.overlay && props.open) ? 'pointer' : 'default'};
+  }
+`;
 
 const NavIcon = styled.button`
   background: none;
@@ -243,26 +273,31 @@ export const Header = () => {
       <Nav>
         <Container>
           <Logo>
-            <img src={logo.src} alt='logo' />
+            <img
+              src={logo.src}
+              alt='logo'
+              className={styles.logo}
+              onClick={() => (document.location.href = '/')}
+            />
           </Logo>
           <Menu>
             <Item>
-              <Link target='#' href='https://www.instagram.com/igor_dumencic/'>
+              <Link target='#' href='/przydatne-informacje'>
                 <p className='hover-underline-animation'>INFORMACJE</p>
               </Link>
             </Item>
             <Item>
-              <Link target='#' href='https://www.instagram.com/igor_dumencic/'>
+              <Link target='#' href='/miejsca-na-urbex'>
                 <p className='hover-underline-animation'>MIEJSCA</p>
               </Link>
             </Item>
             <Item>
-              <Link target='#' href='https://www.instagram.com/igor_dumencic/'>
+              <Link target='#' href='/ranking-miejsc-na-urbex'>
                 <p className='hover-underline-animation'>RANKING</p>
               </Link>
             </Item>
             <Item>
-              <Link target='#' href='https://www.behance.net/igordumencic'>
+              <Link target='#' href='/o-nas'>
                 <p className='hover-underline-animation'>O NAS</p>
               </Link>
             </Item>
@@ -309,27 +344,43 @@ export const Header = () => {
       </Nav>
       <Overlay open={toggle}>
         <OverlayMenu open={toggle}>
-          <Item>
-            <Link target='#' href='https://www.instagram.com/igor_dumencic/'>
+          <Item overlay={true} open={toggle}>
+            {toggle ? (
+              <Link target='#' href='/przydatne-informacje'>
+                <p className='hover-underline-animation'>INFORMACJE</p>
+              </Link>
+            ) : (
               <p className='hover-underline-animation'>INFORMACJE</p>
-            </Link>
+            )}
           </Item>
-          <Item>
-            <Link target='#' href='https://www.instagram.com/igor_dumencic/'>
+          <Item overlay={true} open={toggle}>
+            {toggle ? (
+              <Link target='#' href='/miejsca-na-urbex'>
+                <p className='hover-underline-animation'>MIEJSCA</p>
+              </Link>
+            ) : (
               <p className='hover-underline-animation'>MIEJSCA</p>
-            </Link>
+            )}
           </Item>
-          <Item>
-            <Link target='#' href='https://www.instagram.com/igor_dumencic/'>
+          <Item overlay={true} open={toggle}>
+            {toggle ? (
+              <Link target='#' href='/ranking-miejsc-na-urbex'>
+                <p className='hover-underline-animation'>RANKING</p>
+              </Link>
+            ) : (
               <p className='hover-underline-animation'>RANKING</p>
-            </Link>
+            )}
           </Item>
-          <Item>
-            <Link target='#' href='https://www.behance.net/igordumencic'>
+          <Item overlay={true} open={toggle}>
+            {toggle ? (
+              <Link target='#' href='/o-nas'>
+                <p className='hover-underline-animation'>O NAS</p>
+              </Link>
+            ) : (
               <p className='hover-underline-animation'>O NAS</p>
-            </Link>
+            )}
           </Item>
-          <Item>
+          <Item overlay={true} open={toggle}>
             <Form
               barOpened={barOpened}
               onClick={() => {
@@ -353,13 +404,15 @@ export const Header = () => {
               <Button type='submit' barOpened={barOpened}>
                 <ImSearch />
               </Button>
-              <Input
-                onChange={(e) => setInput(e.target.value)}
-                ref={inputFocus}
-                value={input}
-                barOpened={barOpened}
-                placeholder='Znajdź artykuł...'
-              />
+              {toggle && (
+                <Input
+                  onChange={(e) => setInput(e.target.value)}
+                  ref={inputFocus}
+                  value={input}
+                  barOpened={barOpened}
+                  placeholder='Znajdź artykuł...'
+                />
+              )}
             </Form>
           </Item>
         </OverlayMenu>
