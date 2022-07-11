@@ -1,1 +1,143 @@
 @import '../../styles/variables.scss';
+
+.landingSection {
+  height: 160px;
+}
+
+.landingPage {
+  position: absolute;
+  top: 100;
+  left: 0;
+  height: calc(100vh - 75px);
+  width: 100vw;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('../../public/assets/urbexPhotos/urbexPhoto7.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+    h1 {
+      color: $pokeColor;
+
+      @include media('<=tablet-portrait') {
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      @include media('<=mobile') {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.section {
+  margin-top: 50px;
+
+  .rankItemContainer {
+    -webkit-box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+    width: 500px;
+    position: relative;
+    margin: 30px auto 0 auto;
+
+    .rankNumber {
+      width: 90px;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      font-weight: 500;
+      background: radial-gradient(white, $lightAquamarineColor, #dfffd5);
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    .place {
+      display: flex;
+      padding: 10px 20px;
+      background-color: $lightAquamarineColor;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      width: calc(100% - 90px);
+      justify-content: space-between;
+      position: relative;
+
+      &::before {
+        content: '';
+        background-color: #dfffd5;
+        width: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all linear 0.3s;
+        height: 100%;
+        z-index: 1;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        &::before {
+          width: 100%;
+        }
+      }
+
+      .placeInfo {
+        display: grid;
+        grid-template-areas:
+          'placeName placeName placeName '
+          'city date .';
+        z-index: 2;
+
+        .placeName {
+          grid-area: placeName;
+          font-size: 24px;
+        }
+
+        .city {
+          grid-area: city;
+          font-size: 16px;
+        }
+
+        .date {
+          grid-area: date;
+          font-size: 16px;
+          margin-left: 10px;
+        }
+      }
+
+      .ourRating {
+        grid-area: rating;
+        width: 115px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        z-index: 2;
+
+        .star {
+          width: 20px;
+          height: 20px;
+          margin-right: 3px;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
