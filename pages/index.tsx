@@ -28,7 +28,6 @@ interface IHomeProps {
 }
 
 export default function Home({ articles }: IHomeProps) {
-  console.log(articles);
   return (
     <>
       <main>

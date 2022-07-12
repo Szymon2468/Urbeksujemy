@@ -1,1 +1,336 @@
 @import '../../styles/variables.scss';
+
+@keyframes animateWidth {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes animateHeight {
+  from {
+    height: 0%;
+  }
+
+  to {
+    height: 100%;
+  }
+}
+
+.article {
+  .header {
+    height: 600px;
+    position: relative;
+    width: 100%;
+
+    .vignette {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0.3;
+    }
+
+    .topVignette {
+      top: 0;
+      left: 0;
+      height: 12%;
+      width: 100%;
+      position: absolute;
+      background: linear-gradient(
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.1),
+        transparent
+      );
+    }
+
+    .landingPage {
+      width: 100%;
+      height: 100%;
+    }
+
+    .headerContent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+      );
+      height: 45%;
+      width: 100%;
+      z-index: 999999999999999999;
+
+      h1 {
+        margin-top: 30px;
+      }
+
+      .headerContainer {
+        .headerInfo {
+          width: fit-content;
+          p,
+          h1 {
+            color: $lightAquamarineColor;
+          }
+
+          .title {
+            margin-bottom: 10px;
+          }
+
+          .dateAndAuthor {
+            display: flex;
+            gap: 30px;
+
+            p {
+              color: $lightAquamarineColor;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            }
+          }
+        }
+
+        .sharingAndRatingContainer {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          margin-top: 10px;
+
+          .headerRating {
+            width: 100%;
+
+            .rating {
+              display: flex;
+              justify-content: flex-end;
+              width: 100%;
+              color: $lightAquamarineColor;
+            }
+          }
+
+          .shareContainer {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+            svg {
+              margin: 0 !important;
+              margin-right: 15px !important;
+            }
+
+            .mediaIcon {
+              width: 15px;
+              height: 15px;
+              margin-left: 15px;
+              color: $lightAquamarineColor;
+
+              @include media('>=tablet-portrait', '<=tablet-landscape') {
+                width: 15px;
+                height: 15px;
+              }
+
+              @include media('>=tablet-landscape') {
+                width: 20px;
+                height: 20px;
+              }
+
+              @include media('>=desktop') {
+                margin-left: 25px;
+              }
+
+              @include media('>=tablet-landscape') {
+                &:hover {
+                  cursor: pointer;
+                  transition: 0.3s;
+                  transform: scale(1.2);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .gridContainer {
+    display: grid;
+    grid-template: auto / calc(70% - 45px) calc(25% - 45px);
+    width: 100%;
+    height: auto;
+    gap: 90px;
+    justify-content: center;
+
+    .main {
+      margin-top: 50px;
+
+      .title {
+        width: 100%;
+        text-align: center;
+        margin: 30px 0;
+        font-size: 28px;
+      }
+
+      .gallery {
+        margin-top: 50px;
+      }
+    }
+
+    .aside {
+      margin-top: 50px;
+
+      .title {
+        width: 100%;
+        margin-bottom: 20px;
+        border-bottom: 2.5px $textColor solid;
+      }
+
+      .urbexImg {
+        width: 100%;
+        height: 260px;
+        margin-bottom: 30px;
+      }
+
+      p {
+        text-align: left;
+        margin-bottom: 40px;
+        font-size: 18px;
+      }
+
+      .listTitle {
+        margin: 0;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+
+      // h3 {
+      //   text-align: center;
+      //   font-size: 20px;
+      //   font-weight: 600;
+      //   margin-bottom: 20px;
+      // }
+
+      .btn {
+        width: 200px;
+        height: auto;
+        font-size: 22px;
+        font-weight: 500;
+        background-color: transparent;
+        border-bottom: 3px solid $pokeColor;
+        border-left: 3px solid $pokeColor;
+        padding: 10px;
+        position: relative;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+
+        & > * {
+          position: relative;
+          z-index: 2;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 0%;
+          background-color: $pokeColor;
+          transition: all linear 0.4s;
+        }
+
+        p {
+          margin: 0;
+        }
+
+        .belt {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background: linear-gradient(to right, #779974, #e7e6d3, #e7e6d3);
+          height: 3px;
+        }
+
+        .horizontalBelt {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          height: 100%;
+          background: linear-gradient(to top, #779974, #e7e6d3, #e7e6d3);
+          width: 3px;
+        }
+
+        .animatedWidthBelt {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 3px;
+          background-color: $pokeColor;
+        }
+
+        .animatedHeightBelt {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 3px;
+          background-color: $pokeColor;
+        }
+
+        svg {
+          margin-left: 20px;
+          stroke-width: 1px;
+          stroke: $textColor;
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          // &::before {
+          //   width: 100%;
+          // }
+        }
+
+        .animatedWidthBelt {
+          animation: animateWidth 0.2s linear;
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
+        }
+
+        .animatedWidthBeltBack {
+          animation: animateWidthBack 0.2s linear;
+          animation-iteration-count: 1;
+          animation-fill-mode: backwards;
+        }
+
+        .animatedHeightBelt {
+          animation: animateHeight 0.2s linear;
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
+        }
+
+        .animatedHeightBeltBack {
+          animation: animateHeightBack 0.2s linear;
+          animation-iteration-count: 1;
+          animation-fill-mode: backwards;
+        }
+      }
+    }
+  }
+}
