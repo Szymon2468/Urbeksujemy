@@ -1,0 +1,59 @@
+@import '../../../styles/variables.scss';
+
+.comment {
+  border: $pokeColor 2px solid;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+
+  .person {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+
+    svg {
+      width: 60px;
+      height: 60px;
+    }
+
+    .commentInfo {
+      width: 100%;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .nameAndRating {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        .name {
+          font-size: 20px;
+          font-weight: 500;
+        }
+
+        .rating {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          font-weight: 500;
+          font-size: 16px;
+        }
+      }
+
+      .date {
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .content {
+    font-size: 18px;
+  }
+}

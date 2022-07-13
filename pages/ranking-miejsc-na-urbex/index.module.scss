@@ -85,7 +85,14 @@
       align-items: center;
       font-size: 30px;
       font-weight: 500;
-      background: radial-gradient(white, $lightAquamarineColor, #dfffd5);
+      background: radial-gradient(
+        white,
+        white,
+        mix(white, $pokeColor, 50%),
+        $pokeColor,
+        $pokeColor,
+        $pokeColor
+      );
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
     }
@@ -102,7 +109,7 @@
 
       &::before {
         content: '';
-        background-color: #dfffd5;
+        background-color: $pokeColor;
         width: 0;
         position: absolute;
         top: 0;

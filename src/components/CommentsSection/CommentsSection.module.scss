@@ -1,0 +1,22 @@
+@import '../../../styles/variables.scss';
+
+.titleContainer {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 30px;
+
+  .title {
+    width: 100;
+    text-align: center;
+    padding: 20px;
+    white-space: nowrap;
+  }
+
+  .belt {
+    height: 2px;
+    width: 100%;
+    background-color: $pokeColor;
+    border-radius: 100%;
+  }
+}
