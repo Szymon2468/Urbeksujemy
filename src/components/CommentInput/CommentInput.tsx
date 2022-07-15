@@ -1,6 +1,6 @@
 import blockTools from '@sanity/block-tools';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BsFillStarFill } from 'react-icons/bs';
 import styles from './CommentInput.module.scss';
 import Schema from '@sanity/schema';
@@ -38,6 +38,18 @@ function CommentInput({ articleId }) {
   const [rating, setRating] = useState(0);
   const [isCommentSent, setIsCommentSent] = useState(false);
 
+  useEffect(() => {
+    let stars = Array.from(document.querySelectorAll('div[data-rating]'));
+
+    for (const star of stars) {
+      if (Number(star.dataset.rating) <= Number(rating)) {
+        star.firstChild.style.fill = 'rgb(240, 240, 0)';
+      } else {
+        star.firstChild.style.fill = 'rgb(255, 255, 200)';
+      }
+    }
+  }, [rating]);
+
   const highlightStars = (ratingNr) => {
     let stars = Array.from(
       document.querySelectorAll('div[data-rating]')
@@ -53,6 +65,10 @@ function CommentInput({ articleId }) {
   };
 
   const unhighlightStars = () => {
+    if (rating > 0) {
+      return;
+    }
+
     const stars = Array.from(document.querySelectorAll('div[data-rating]'));
 
     if (rating <= 0) {
@@ -66,18 +82,6 @@ function CommentInput({ articleId }) {
 
   const onStarClick = (e) => {
     setRating(e.currentTarget.dataset.rating);
-
-    let stars = Array.from(document.querySelectorAll('div[data-rating]'));
-
-    for (const star of stars) {
-      if (
-        Number(star.dataset.rating) <= Number(e.currentTarget.dataset.rating)
-      ) {
-        star.firstChild.style.fill = 'rgb(240, 240, 0)';
-      } else {
-        star.firstChild.style.fill = 'rgb(255, 255, 200)';
-      }
-    }
   };
 
   const generateStars = () => {
@@ -149,31 +153,32 @@ function CommentInput({ articleId }) {
         <h3 className={styles.title}>Dziękujemy za komentarz</h3>
       )}
       <div className={styles.commentInputContainer}>
-        {!isCommentSent && (
-          <form onSubmit={handleSubmit}>
-            <div className={styles.smallInputs}>
-              <input
-                name='author'
-                type='text'
-                className={styles.smallInput}
-                placeholder='Imię i nazwisko'
-                onChange={handleChange}
-              />
-              <div className={styles.stars}>{generateStars()}</div>
-            </div>
-            <textarea
-              name='comment'
-              className={styles.bigInput}
-              placeholder='Twój komentarz'
+        <form
+          onSubmit={handleSubmit}
+          style={{ display: isCommentSent ? 'none' : 'initial' }}
+        >
+          <div className={styles.smallInputs}>
+            <input
+              name='author'
+              type='text'
+              className={styles.smallInput}
+              placeholder='Imię i nazwisko'
               onChange={handleChange}
             />
-            <div className={styles.btnContainer}>
-              <button type='submit' onClick={() => setIsCommentSent(true)}>
-                Wyślij
-              </button>
-            </div>
-          </form>
-        )}
+            <div className={styles.stars}>{generateStars()}</div>
+          </div>
+          <textarea
+            name='comment'
+            className={styles.bigInput}
+            placeholder='Twój komentarz'
+            onChange={handleChange}
+          />
+          <div className={styles.btnContainer}>
+            <button type='submit' onClick={() => setIsCommentSent(true)}>
+              Wyślij
+            </button>
+          </div>
+        </form>
         {isCommentSent && (
           <p className={styles.commentSentMsg}>
             Twój komentarz zostanie dodany po weryfikacji przez administratorów
