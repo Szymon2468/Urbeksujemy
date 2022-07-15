@@ -18,8 +18,9 @@ import Gallery from '../../src/components/Gallery/Gallery';
 import Aside from '../../src/components/Aside/Aside';
 import Link from 'next/link';
 import CommentsSection from '../../src/components/CommentsSection/CommentsSection';
+import PhotosGallery from '../../src/components/PhotosGallery/PhotosGallery';
 
-function ArticlePage({ article }) {
+function ArticlePage({ article, comments }) {
   const {
     author,
     content,
@@ -73,7 +74,7 @@ function ArticlePage({ article }) {
       );
     }
   }
-
+  console.log(comments);
   return (
     <article className={styles.article}>
       <header className={styles.header}>
@@ -156,10 +157,10 @@ function ArticlePage({ article }) {
                 Przeglądaj zdjęcia z naszej wyprawy do tego miejsca
               </h2>
 
-              <Gallery images={place.photos} />
+              <PhotosGallery images={place.photos} />
             </div>
 
-            <CommentsSection />
+            <CommentsSection comments={comments} articleId={article._id} />
           </main>
           <Aside />
         </div>
@@ -190,11 +191,13 @@ export const getStaticProps = async (context: any) => {
     *[
       _type == "articles" && date < now() && slug.current == $slug
     ][0] {
+      _id,
       author->,
       content,
       date,
       mainImage,
       place->{
+        _id,
         placeName,
         city->{
           city,
@@ -217,6 +220,22 @@ export const getStaticProps = async (context: any) => {
     { slug }
   );
 
+  const articleId = article._id;
+
+  const comments = await sanityClient.fetch(
+    `
+    *[_type == "comments" && references($articleId) && approved][] {
+      article->,
+      approved,
+      author,
+      rating,
+      comment,
+      _createdAt
+    }
+    `,
+    { articleId }
+  );
+
   article.place.photos = article.place.photos.map((photo) => {
     return {
       url: urlBuilder(sanityClient).image(photo.asset).url() as string,
@@ -226,7 +245,8 @@ export const getStaticProps = async (context: any) => {
 
   return {
     props: {
-      article
+      article,
+      comments
     }
   };
 };

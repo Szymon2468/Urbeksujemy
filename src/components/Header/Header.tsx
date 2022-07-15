@@ -23,7 +23,7 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  z-index: 9999999999999;
+  z-index: 99999;
 
   h1:hover {
     cursor: pointer;

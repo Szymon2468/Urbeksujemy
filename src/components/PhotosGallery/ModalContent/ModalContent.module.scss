@@ -1,0 +1,58 @@
+@import '../../../../styles/variables.scss';
+
+.imgContainer {
+  position: fixed;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(76, 73, 72, 0.96);
+  padding: 100px;
+  padding-top: 70px;
+  top: 0;
+  left: 0;
+  z-index: 99999999;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .img {
+    width: auto;
+    max-width: calc(100% - 120px);
+    height: 100%;
+    z-index: 999999990;
+    box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
+    object-fit: contain;
+    margin: 0 20px;
+  }
+
+  svg {
+    width: 40px;
+    height: 40px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.closeIcon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  height: fit-content;
+  height: 30px;
+  width: 100%;
+  z-index: 999999990;
+  display: flex;
+  justify-content: flex-end;
+
+  svg {
+    width: 30px;
+    height: 30px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

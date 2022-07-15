@@ -30,6 +30,10 @@
       padding: 10px;
     }
 
+    .commentSentMsg {
+      text-align: center;
+    }
+
     .smallInputs {
       display: flex;
       justify-content: space-between;
@@ -60,12 +64,25 @@
     }
 
     .btnContainer {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+
       button {
         background-color: $textColor;
         color: $lightAquamarineColor;
-        padding: 5px 10px;
+        padding: 5px 20px;
         border: none;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s linear;
+        border: 2px solid $lightAquamarineColor;
+
+        &:hover {
+          background-color: $lightAquamarineColor;
+          color: $textColor;
+          border: 2px solid $textColor;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
       }
     }
 
