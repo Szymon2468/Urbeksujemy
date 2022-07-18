@@ -1,6 +1,12 @@
+@import '../../../styles/variables.scss';
+
 .articleBody {
   img {
     margin: 20px auto;
+
+    @include media('<=mobile') {
+      margin: 10px auto;
+    }
   }
 
   h2 {
@@ -16,5 +22,9 @@
   p {
     padding: 10px 0;
     text-align: justify;
+
+    @include media('<=mobile') {
+      text-align: left;
+    }
   }
 }

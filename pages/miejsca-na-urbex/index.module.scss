@@ -1,5 +1,35 @@
 @import '../../styles/variables.scss';
 
+.gridArticlesContainer {
+  display: grid;
+  grid-template: auto / repeat(4, auto);
+  justify-content: center;
+
+  @include media('<=desktop') {
+    grid-template: auto / repeat(3, auto);
+  }
+
+  @include media('<=small-desktop') {
+    grid-template: auto / repeat(2, auto);
+  }
+
+  @include media('<=tablet-portrait') {
+    grid-template: auto / auto;
+  }
+
+  .cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: fit-content;
+
+    @include media('<=tablet-portrait') {
+      padding: 20px 0;
+    }
+  }
+}
+
 @keyframes animateWidth {
   from {
     width: 0%;
@@ -25,6 +55,10 @@
     height: 600px;
     position: relative;
     width: 100%;
+
+    @include media('<=big-mobile') {
+      height: 400px;
+    }
 
     .vignette {
       position: absolute;
@@ -78,16 +112,35 @@
       width: 100%;
       z-index: 99999999;
 
+      @include media('<=big-mobile') {
+        height: 80%;
+      }
+
+      @include media('<=mobile') {
+        height: 85%;
+      }
+
       h1 {
         margin-top: 30px;
       }
 
       .headerContainer {
+        @include media('<=tablet-portrait') {
+          width: 90%;
+          max-width: 90%;
+        }
+
         .headerInfo {
           width: fit-content;
           p,
           h1 {
             color: $lightAquamarineColor;
+          }
+
+          h1 {
+            @include media('<=tablet-portrait') {
+              font-size: 26px;
+            }
           }
 
           .title {
@@ -97,6 +150,11 @@
           .dateAndAuthor {
             display: flex;
             gap: 30px;
+
+            @include media('<=big-mobile') {
+              flex-direction: column;
+              gap: 5px;
+            }
 
             p {
               color: $lightAquamarineColor;
@@ -168,6 +226,13 @@
     }
   }
 
+  .container {
+    @include media('<=tablet-portrait') {
+      width: 90%;
+      max-width: 90%;
+    }
+  }
+
   .gridContainer {
     display: grid;
     grid-template: auto / calc(70% - 45px) calc(25% - 45px);
@@ -176,6 +241,10 @@
     gap: 90px;
     justify-content: center;
 
+    @include media('<=small-desktop') {
+      grid-template: auto / 100%;
+    }
+
     .main {
       margin-top: 50px;
 
@@ -183,6 +252,10 @@
         display: flex;
         align-items: center;
         margin-bottom: 20px;
+
+        @include media('<=big-mobile') {
+          display: none;
+        }
 
         svg {
           stroke-width: 0.5;
@@ -218,6 +291,12 @@
 
       .gallery {
         margin-top: 50px;
+      }
+    }
+
+    .aside {
+      @include media('<=small-desktop') {
+        display: none;
       }
     }
   }

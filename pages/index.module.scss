@@ -1,0 +1,73 @@
+@import '../styles/variables.scss';
+
+.swiper {
+  height: 600px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../public/assets/forest.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  margin: 50px 0;
+  font-size: 28px;
+}
+
+.container,
+.DescContainer {
+  width: 100%;
+  max-width: 1300px;
+}
+
+.DescContainer {
+  display: flex;
+  margin: 50px auto;
+}
+
+.imgContainer,
+.textContainer {
+  width: 50%;
+}
+
+.imgContainer {
+  img {
+    width: 560px;
+    height: 315px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid $pokeColor;
+  }
+}
+
+.textContainer {
+  display: flex;
+  align-items: center;
+}
+
+.map {
+  width: fit-content;
+  margin: 0 auto;
+
+  width: 700px;
+  height: 700px;
+}
+
+.recentArticlesContainer {
+  display: grid;
+  grid-template: auto / repeat(3, 1fr);
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+  gap: 30px;
+
+  @include media('<=tablet-landscape') {
+    grid-template: repeat(2, auto) / repeat(2, 1fr);
+  }
+
+  @include media('<=tablet-portrait') {
+    grid-template: repeat(3, auto) / repeat(1, 1fr);
+  }
+}

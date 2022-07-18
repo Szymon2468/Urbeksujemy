@@ -13,7 +13,6 @@ import {
 import { FacebookShareButton, WhatsappShareButton } from 'react-share';
 import { FiLink } from 'react-icons/fi';
 import ArticleBody from '../../src/components/ArticleBody/ArticleBody';
-import Gallery from '../../src/components/Gallery/Gallery';
 
 import Aside from '../../src/components/Aside/Aside';
 import Link from 'next/link';
@@ -134,7 +133,7 @@ function ArticlePage({ article, comments }) {
         <div className={styles.vignette}></div>
         <div className={styles.topVignette}></div>
       </header>
-      <div className='container'>
+      <div className={classNames('container', styles.container)}>
         <div className={styles.gridContainer}>
           <main className={styles.main}>
             <div className={styles.seed}>
@@ -162,7 +161,9 @@ function ArticlePage({ article, comments }) {
 
             <CommentsSection comments={comments} articleId={article._id} />
           </main>
-          <Aside />
+          <span className={styles.aside}>
+            <Aside />
+          </span>
         </div>
       </div>
     </article>
