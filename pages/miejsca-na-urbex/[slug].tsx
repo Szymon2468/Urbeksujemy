@@ -18,6 +18,9 @@ import Aside from '../../src/components/Aside/Aside';
 import Link from 'next/link';
 import CommentsSection from '../../src/components/CommentsSection/CommentsSection';
 import PhotosGallery from '../../src/components/PhotosGallery/PhotosGallery';
+import useWindowSize from '../../src/hooks/useWindowSize';
+import { useEffect, useState } from 'react';
+import { v4 } from 'uuid';
 
 function ArticlePage({ article, comments }) {
   const {
@@ -32,6 +35,17 @@ function ArticlePage({ article, comments }) {
     title,
     place
   } = article;
+
+  const [isGalleryDisplayed, setIsGalleryDisplayed] = useState(true);
+  const windowSize = useWindowSize();
+
+  useEffect(() => {
+    if (windowSize.width <= 576) {
+      setIsGalleryDisplayed(false);
+    } else {
+      setIsGalleryDisplayed(true);
+    }
+  }, [windowSize.width]);
 
   function fallbackCopyTextToClipboard(text) {
     var textArea = document.createElement('textarea');
@@ -156,7 +170,11 @@ function ArticlePage({ article, comments }) {
                 Przeglądaj zdjęcia z naszej wyprawy do tego miejsca
               </h2>
 
-              <PhotosGallery images={place.photos} />
+              {isGalleryDisplayed && <PhotosGallery images={place.photos} />}
+              {!isGalleryDisplayed &&
+                place.photos.map((el) => (
+                  <img key={v4()} src={el.url} alt={el.alt} />
+                ))}
             </div>
 
             <CommentsSection comments={comments} articleId={article._id} />

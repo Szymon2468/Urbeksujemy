@@ -5,6 +5,7 @@ import photo1 from '../../public/assets/urbexPhotos/urbexPhoto1.webp';
 import { sanityClient } from '../../sanity';
 import { AiFillStar } from 'react-icons/ai';
 import Link from 'next/link';
+import classNames from 'classnames';
 
 const filledStarScore = (ourRating) => {
   let result = [];
@@ -74,7 +75,7 @@ function Index({ places }) {
         </div>
       </section>
 
-      <div className='container'>
+      <div className={classNames('container', styles.container)}>
         <section className={styles.section}>
           {places.map((el, index) => (
             <RankItem

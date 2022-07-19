@@ -9,7 +9,9 @@ function Comment({ author, rating, comment, date }) {
   return (
     <div className={styles.comment}>
       <div className={styles.person}>
-        <BsFillPersonFill />
+        <div className={styles.personIconContainer}>
+          <BsFillPersonFill />
+        </div>
 
         <div className={styles.commentInfo}>
           <div className={styles.nameAndRating}>

@@ -16,6 +16,14 @@
   justify-content: space-between;
   align-items: center;
 
+  @include media('<=small-desktop') {
+    padding: 50px;
+  }
+
+  @include media('<=tablet-landscape') {
+    padding: 10px;
+  }
+
   .img {
     width: auto;
     max-width: calc(100% - 120px);
@@ -24,6 +32,10 @@
     box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
     object-fit: contain;
     margin: 0 20px;
+
+    @include media('<=small-desktop') {
+      box-shadow: none;
+    }
   }
 
   svg {

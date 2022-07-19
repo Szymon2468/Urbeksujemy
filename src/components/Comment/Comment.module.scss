@@ -11,9 +11,23 @@
     gap: 15px;
     margin-bottom: 8px;
 
-    svg {
-      width: 60px;
-      height: 60px;
+    @include media('<=mobile') {
+      margin-bottom: 0;
+    }
+
+    .personIconContainer {
+      display: flex;
+      align-items: center;
+
+      svg {
+        width: 60px;
+        height: 60px;
+
+        @include media('<=mobile') {
+          width: 70px;
+          height: 70px;
+        }
+      }
     }
 
     .commentInfo {
@@ -28,6 +42,10 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
+
+        @include media('<=mobile') {
+          flex-direction: column;
+        }
 
         .name {
           font-size: 20px;

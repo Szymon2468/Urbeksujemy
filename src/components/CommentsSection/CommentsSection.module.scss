@@ -2,7 +2,6 @@
 
 .titleContainer {
   display: flex;
-  gap: 20px;
   align-items: center;
   margin-bottom: 30px;
 
@@ -11,6 +10,11 @@
     text-align: center;
     padding: 20px;
     white-space: nowrap;
+
+    @include media('<=big-mobile') {
+      width: 100%;
+      white-space: wrap;
+    }
   }
 
   .belt {
@@ -18,5 +22,9 @@
     width: 100%;
     background-color: $pokeColor;
     border-radius: 100%;
+
+    @include media('<=big-mobile') {
+      display: none;
+    }
   }
 }

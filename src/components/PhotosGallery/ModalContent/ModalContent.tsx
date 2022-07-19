@@ -1,10 +1,24 @@
 import styles from './ModalContent.module.scss';
 import { CgClose } from 'react-icons/cg';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function ModalContent({ src, onClose, images }) {
   const [imgSrc, setImgSrc] = useState(src);
+
+  const handleArrowKeyPress = (e) => {
+    if (e.key === 'ArrowLeft') {
+      handleLeftArrowClick();
+    } else if (e.key === 'ArrowRight') {
+      handleRightArrowClick();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleArrowKeyPress);
+
+    return () => document.removeEventListener('keydown', handleArrowKeyPress);
+  }, [handleArrowKeyPress]);
 
   const handleLeftArrowClick = () => {
     const currentImgIndex = images.findIndex((el) => el.url === imgSrc);
