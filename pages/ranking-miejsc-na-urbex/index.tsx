@@ -1,11 +1,9 @@
-import React from 'react';
-import styles from './index.module.scss';
-import photo1 from '../../public/assets/urbexPhotos/urbexPhoto1.webp';
-import { sanityClient } from '../../sanity';
-import { AiFillStar } from 'react-icons/ai';
-import Link from 'next/link';
 import classNames from 'classnames';
+import Link from 'next/link';
+import { AiFillStar } from 'react-icons/ai';
 import { v4 } from 'uuid';
+import { sanityClient } from '../../sanity';
+import styles from './index.module.scss';
 
 const filledStarScore = (ourRating) => {
   let result = [];

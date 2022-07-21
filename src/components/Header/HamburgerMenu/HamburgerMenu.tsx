@@ -25,6 +25,8 @@ function HamburgerMenu({ logoClicked }) {
         <Hamburger
           toggled={isHamburgerMenuOpen}
           toggle={setIsHamburgerMenuOpen}
+          // @ts-ignore
+          role='button'
         />
       </div>
 
