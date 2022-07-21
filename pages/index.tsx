@@ -19,7 +19,7 @@ import photo12 from '../public/assets/urbexPhotos/urbexPhoto12.webp';
 import PolandMap from '../public/assets/PolandMap';
 import ArticleCard from '../src/components/ArticleCard/ArticleCard';
 import { sanityClient } from '../sanity';
-import { uuid } from 'uuidv4';
+import { v4 } from 'uuid';
 import urlBuilder from '@sanity/image-url';
 import IArticle from '../src/homepage.def';
 
@@ -142,7 +142,7 @@ const RecentArticlesSection = ({ articles }: IHomeProps) => {
       <div className={styles.recentArticlesContainer}>
         {articles.map((el) => (
           <ArticleCard
-            key={uuid()}
+            key={v4()}
             title={el.place.placeName}
             description={el.teaser}
             imgAlt={el.mainImage.alt}
