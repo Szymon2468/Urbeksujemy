@@ -226,7 +226,7 @@
     }
   }
 
-  .container {
+  .ArticleContainer {
     @include media('<=tablet-portrait') {
       width: 90%;
       max-width: 90%;

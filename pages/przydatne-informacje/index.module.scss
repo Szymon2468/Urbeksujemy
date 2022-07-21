@@ -1,1 +1,94 @@
 @import '../../styles/variables.scss';
+
+.infoHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+
+  h1 {
+    span {
+      color: $pokeColor;
+    }
+
+    @include media('<=tablet-portrait') {
+      width: 80%;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    @include media('<=mobile') {
+      width: 100%;
+    }
+  }
+}
+
+.infoMain {
+  .infoSection {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    border-bottom: 3px solid $textColor;
+
+    &:nth-of-type(2n) {
+      .sectionContent {
+        flex-direction: row-reverse;
+      }
+
+      .waveContainer {
+        svg {
+          transform: rotateZ(180deg);
+        }
+      }
+    }
+
+    .waveContainer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      svg {
+        width: 100%;
+        height: 400px;
+      }
+    }
+
+    .sectionContent {
+      display: flex;
+      align-items: center;
+      gap: 100px;
+      height: 100%;
+
+      img {
+        height: 270px;
+        border-radius: 10px;
+        box-shadow: -6px 6px 17px 1px rgba(0, 0, 0, 0.68);
+        -webkit-box-shadow: -6px 6px 17px 1px rgba(0, 0, 0, 0.68);
+        -moz-box-shadow: -6px 6px 17px 1px rgba(0, 0, 0, 0.68);
+      }
+
+      .textContainer {
+        width: max-content;
+        padding: 20px;
+        background-image: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0)
+        );
+        backdrop-filter: blur(5px);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 20px;
+      }
+
+      p,
+      img,
+      .textContainer {
+        z-index: 1e9;
+      }
+    }
+  }
+}

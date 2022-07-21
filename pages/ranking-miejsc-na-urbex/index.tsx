@@ -75,7 +75,7 @@ function Index({ places }) {
         </div>
       </section>
 
-      <div className={classNames('container', styles.container)}>
+      <div className={classNames('container', styles.rankingContainer)}>
         <section className={styles.section}>
           {places.map((el, index) => (
             <RankItem
