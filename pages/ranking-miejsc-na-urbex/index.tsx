@@ -6,6 +6,7 @@ import { sanityClient } from '../../sanity';
 import { AiFillStar } from 'react-icons/ai';
 import Link from 'next/link';
 import classNames from 'classnames';
+import { v4 } from 'uuid';
 
 const filledStarScore = (ourRating) => {
   let result = [];
@@ -59,7 +60,7 @@ const RankItem = ({ placeName, ourRating, slug, city, date, nr }) => {
   );
 };
 
-function Index({ places }) {
+function RankingPage({ places }) {
   return (
     <main>
       <section className={styles.landingSection}>
@@ -79,6 +80,7 @@ function Index({ places }) {
         <section className={styles.section}>
           {places.map((el, index) => (
             <RankItem
+              key={v4()}
               placeName={el.placeName}
               ourRating={el.ourRating}
               slug={el.article.slug.current}
@@ -111,4 +113,4 @@ export const getStaticProps = async (context: any) => {
   };
 };
 
-export default Index;
+export default RankingPage;

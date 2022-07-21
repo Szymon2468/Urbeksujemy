@@ -307,11 +307,13 @@ export const Header = () => {
                 onClick={() => {
                   // When form clicked, set state of baropened to true and focus the input
                   setBarOpened(true);
+                  // @ts-ignore
                   inputFocus.current.focus();
                 }}
                 // on focus open search bar
                 onFocus={() => {
                   setBarOpened(true);
+                  // @ts-ignore
                   inputFocus.current.focus();
                 }}
                 // on blur close search bar
@@ -386,11 +388,13 @@ export const Header = () => {
               onClick={() => {
                 // When form clicked, set state of baropened to true and focus the input
                 setBarOpened(true);
+                // @ts-ignore
                 inputFocus.current.focus();
               }}
               // on focus open search bar
               onFocus={() => {
                 setBarOpened(true);
+                // @ts-ignore
                 inputFocus.current.focus();
               }}
               // on blur close search bar

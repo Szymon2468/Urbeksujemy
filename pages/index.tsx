@@ -19,9 +19,9 @@ import photo12 from '../public/assets/urbexPhotos/urbexPhoto12.webp';
 import PolandMap from '../public/assets/PolandMap';
 import ArticleCard from '../src/components/ArticleCard/ArticleCard';
 import { sanityClient } from '../sanity';
-import { IArticle } from './index.def';
 import { uuid } from 'uuidv4';
 import urlBuilder from '@sanity/image-url';
+import IArticle from '../src/homepage.def';
 
 interface IHomeProps {
   articles: IArticle[];

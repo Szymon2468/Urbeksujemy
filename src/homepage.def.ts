@@ -1,4 +1,4 @@
-export interface IArticle {
+export default interface IArticle {
   author: {
     name: string;
   };

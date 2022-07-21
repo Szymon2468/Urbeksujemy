@@ -42,9 +42,12 @@ function CommentInput({ articleId }) {
     let stars = Array.from(document.querySelectorAll('div[data-rating]'));
 
     for (const star of stars) {
+      // @ts-ignore
       if (Number(star.dataset.rating) <= Number(rating)) {
+        // @ts-ignore
         star.firstChild.style.fill = 'rgb(240, 240, 0)';
       } else {
+        // @ts-ignore
         star.firstChild.style.fill = 'rgb(255, 255, 200)';
       }
     }
@@ -53,10 +56,12 @@ function CommentInput({ articleId }) {
   const highlightStars = (ratingNr) => {
     let stars = Array.from(
       document.querySelectorAll('div[data-rating]')
+      // @ts-ignore
     ).filter((el) => Number(el.dataset.rating) <= ratingNr);
 
     if (rating <= 0) {
       for (const star of stars) {
+        // @ts-ignore
         star.firstChild.style.fill = 'rgb(240, 240, 0)';
       }
     }
@@ -73,6 +78,7 @@ function CommentInput({ articleId }) {
 
     if (rating <= 0) {
       for (const star of stars) {
+        // @ts-ignore
         star.firstChild.style.fill = 'rgb(255, 255, 200)';
       }
     }

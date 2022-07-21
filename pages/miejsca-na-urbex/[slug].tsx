@@ -23,6 +23,21 @@ import { useEffect, useState } from 'react';
 import { v4 } from 'uuid';
 
 function ArticlePage({ article, comments }) {
+  const [isGalleryDisplayed, setIsGalleryDisplayed] = useState(true);
+  const windowSize = useWindowSize();
+
+  useEffect(() => {
+    if (windowSize.width <= 576) {
+      setIsGalleryDisplayed(false);
+    } else {
+      setIsGalleryDisplayed(true);
+    }
+  }, [windowSize.width]);
+
+  if (!article) {
+    return null;
+  }
+
   const {
     author,
     content,
@@ -36,16 +51,9 @@ function ArticlePage({ article, comments }) {
     place
   } = article;
 
-  const [isGalleryDisplayed, setIsGalleryDisplayed] = useState(true);
-  const windowSize = useWindowSize();
-
-  useEffect(() => {
-    if (windowSize.width <= 576) {
-      setIsGalleryDisplayed(false);
-    } else {
-      setIsGalleryDisplayed(true);
-    }
-  }, [windowSize.width]);
+  // if (!author || !content || !date || !mainImage || !title || !place) {
+  //   return null;
+  // }
 
   function fallbackCopyTextToClipboard(text) {
     let textArea = document.createElement('textarea');
@@ -87,7 +95,6 @@ function ArticlePage({ article, comments }) {
       );
     }
   }
-  console.log(comments);
   return (
     <article className={styles.article}>
       <header className={styles.header}>
@@ -128,14 +135,15 @@ function ArticlePage({ article, comments }) {
 
                 <WhatsappShareButton
                   url={typeof window !== 'undefined' && window.location.href}
-                  quote='Udostępnij artykuł przez facebooka!'
                 >
                   <BsWhatsapp className={styles.mediaIcon} />
                 </WhatsappShareButton>
                 <div
-                  onClick={copyTextToClipboard(
-                    typeof window !== 'undefined' && window.location.href
-                  )}
+                  onClick={() =>
+                    copyTextToClipboard(
+                      typeof window !== 'undefined' && window.location.href
+                    )
+                  }
                 >
                   <FiLink className={styles.mediaIcon} />
                 </div>
@@ -147,7 +155,7 @@ function ArticlePage({ article, comments }) {
         <div className={styles.vignette}></div>
         <div className={styles.topVignette}></div>
       </header>
-      <div className={classNames('container', styles.container)}>
+      <div className={classNames('container', styles.ArticleContainer)}>
         <div className={styles.gridContainer}>
           <main className={styles.main}>
             <div className={styles.seed}>
