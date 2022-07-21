@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './index.module.scss';
-import HorizontalArticleCard from '../../src/components/ArticleCard/HorizontalArticleCard';
 import photo1 from '../../public/assets/urbexPhotos/urbexPhoto1.webp';
 import { sanityClient } from '../../sanity';
 import { AiFillStar } from 'react-icons/ai';
