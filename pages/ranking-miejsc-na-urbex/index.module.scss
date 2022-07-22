@@ -1,27 +1,13 @@
 @import '../../styles/variables.scss';
 
-.landingSection {
-  height: 120px;
-}
-
-.landingPage {
-  position: absolute;
-  top: 100;
-  left: 0;
-  height: calc(100vh - 75px);
-  width: 100vw;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url('../../public/assets/urbexPhotos/urbexPhoto7.webp');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
+.rankingMain {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='1000' preserveAspectRatio='none' viewBox='0 0 1440 1000'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1102%26quot%3b)' fill='none'%3e%3cpath d='M608 638L607 202' stroke-width='6' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M1422 300L1421 -378' stroke-width='10' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M458 801L457 304' stroke-width='8' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M749 338L748 3' stroke-width='10' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M1383 729L1382 1238' stroke-width='6' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M363 325L362 -212' stroke-width='8' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M1419 877L1418 1268' stroke-width='8' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M595 667L594 123' stroke-width='10' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M207 121L206 699' stroke-width='6' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M785 886L784 533' stroke-width='6' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M225 861L224 175' stroke-width='10' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M1006 546L1005 844' stroke-width='10' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M313 767L312 1269' stroke-width='8' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M1201 246L1200 -65' stroke-width='6' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M341 474L340 958' stroke-width='6' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M521 706L520 1006' stroke-width='8' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M327 359L326 1036' stroke-width='10' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M356 707L355 1425' stroke-width='6' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M71 488L70 -24' stroke-width='10' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M1154 832L1153 125' stroke-width='6' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M1182 732L1181 1164' stroke-width='6' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M717 573L716 254' stroke-width='8' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M1379 214L1378 -354' stroke-width='6' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M853 356L852 -217' stroke-width='6' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M1376 66L1375 -433' stroke-width='10' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M972 452L971 990' stroke-width='10' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M395 990L394 659' stroke-width='10' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M1312 173L1311 682' stroke-width='8' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M887 848L886 381' stroke-width='8' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M1213 114L1212 691' stroke-width='10' stroke='url(%23SvgjsLinearGradient1104)' stroke-linecap='round' class='Down'%3e%3c/path%3e%3cpath d='M174 499L173 90' stroke-width='10' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M1191 497L1190 876' stroke-width='8' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M439 276L438 701' stroke-width='8' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M1058 473L1057 -169' stroke-width='8' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M440 281L439 1012' stroke-width='8' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3cpath d='M417 371L416 1010' stroke-width='10' stroke='url(%23SvgjsLinearGradient1103)' stroke-linecap='round' class='Up'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1102'%3e%3crect width='1440' height='1000' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='0%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient1103'%3e%3cstop stop-color='rgba(219%2c 218%2c 196%2c 0)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(219%2c 218%2c 196%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='0%25' y1='0%25' x2='0%25' y2='100%25' id='SvgjsLinearGradient1104'%3e%3cstop stop-color='rgba(219%2c 218%2c 196%2c 0)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(219%2c 218%2c 196%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
 
   header {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    padding-top: 50px;
 
     h1 {
       color: $pokeColor;
@@ -49,188 +35,75 @@
 }
 
 .rankingContainer {
-  margin-top: 80px;
+  margin-top: 50px;
 
-  @include media('<=big-mobile') {
-    margin-top: 100px;
-  }
+  .rankItem {
+    display: flex;
+    margin-bottom: 50px;
+    gap: 100px;
+    align-items: center;
+    height: fit-content;
 
-  @include media('<=mobile') {
-    margin-top: 120px;
-  }
-
-  .section {
-    overflow-y: scroll;
-    height: 62vh;
-    width: fit-content;
-    margin: 50px auto 0 auto;
-
-    /* width */
-    &::-webkit-scrollbar {
-      width: 10px;
-
-      background-color: #f5f5f5;
-    }
-
-    /* Track */
-    &::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-      background: #888;
-    }
-
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
-
-    .rankItemContainer {
-      -webkit-box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
-      -moz-box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
-      box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
-      border-radius: 10px;
-      display: flex;
-      width: 700px;
+    .photo {
       position: relative;
-      margin: 30px auto 0 auto;
+      width: auto;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
 
-      @include media('<=tablet-portrait') {
-        width: 500px;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1e6;
+        border-radius: 10px;
       }
 
-      @include media('<=big-mobile') {
-        width: auto;
-        flex-direction: column;
+      .vignette {
+        background-color: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1e7;
+        border-radius: 10px;
+        opacity: 0.4;
       }
 
-      .rankNumber {
-        width: 90px;
-        height: 90px;
+      span {
+        z-index: 1e8;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
-        font-size: 30px;
-        font-weight: 500;
-        background: radial-gradient(
-          white,
-          white,
-          mix(white, $pokeColor, 50%),
-          $pokeColor,
-          $pokeColor,
-          $pokeColor
-        );
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
+        width: 400px;
+        height: fit-content;
 
-        @include media('<=big-mobile') {
-          height: 30px;
-          font-size: 22px;
-          width: 100%;
-          background: none;
-          border-top-left-radius: 50%;
-          border-top-right-radius: 50%;
-          border-bottom-left-radius: 0;
-          background-color: $lightAquamarineColor;
-          border-bottom: $textColor 3px solid;
-        }
-      }
+        .medal {
+          position: relative;
+          height: 100px;
+          width: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
-      .place {
-        display: flex;
-        padding: 10px 20px;
-        background-color: $lightAquamarineColor;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        width: calc(100% - 90px);
-        justify-content: space-between;
-        position: relative;
-
-        @include media('<=big-mobile') {
-          flex-direction: column;
-          width: 100%;
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-        }
-
-        &::before {
-          content: '';
-          background-color: $pokeColor;
-          width: 0;
-          position: absolute;
-          top: 0;
-          left: 0;
-          transition: all linear 0.3s;
-          height: 100%;
-          z-index: 1;
-          border-top-right-radius: 10px;
-          border-bottom-right-radius: 10px;
-        }
-
-        &:hover {
-          cursor: pointer;
-
-          &::before {
+          img {
+            position: absolute;
+            height: 100%;
             width: 100%;
           }
 
-          @include media('<=big-mobile') {
-            cursor: initial;
-
-            &::before {
-              width: 0;
-            }
-          }
-        }
-
-        .placeInfo {
-          display: grid;
-          grid-template-columns: repeat(3, auto);
-          grid-template-areas:
-            'placeName placeName placeName '
-            'city date .';
-          z-index: 2;
-
-          @include media('<=big-mobile') {
-            grid-template-columns: repeat(2, auto);
-            grid-template-areas:
-              'placeName placeName'
-              'city date';
-          }
-
-          .placeName,
-          .city,
-          .date {
-            @include media('<=big-mobile') {
-              text-align: center;
-            }
-          }
-
-          .placeName {
-            grid-area: placeName;
-            font-size: 24px;
-          }
-
-          .city {
-            grid-area: city;
-            font-size: 16px;
-          }
-
-          .date {
-            grid-area: date;
-            font-size: 16px;
-            margin-left: 10px;
-
-            @include media('<=big-mobile') {
-              margin-left: 0;
-            }
+          p {
+            font-size: 34px;
+            font-weight: 800;
+            z-index: 1e9;
           }
         }
 
         .ourRating {
-          grid-area: rating;
           width: 115px;
           display: flex;
           flex-wrap: wrap;
@@ -246,11 +119,240 @@
             height: 20px;
             margin-right: 3px;
           }
+
           p {
-            font-size: 14px;
+            font-size: 18px;
+            font-weight: 800;
+            color: $lightAquamarineColor;
           }
         }
       }
     }
+
+    .info {
+      width: max-content;
+      height: auto;
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .teaser {
+        margin: 30px 0;
+      }
+
+      span {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          font-size: 18px;
+        }
+      }
+    }
   }
+
+  // @include media('<=big-mobile') {
+  //   margin-top: 100px;
+  // }
+
+  // @include media('<=mobile') {
+  //   margin-top: 120px;
+  // }
 }
+
+//   .section {
+//     overflow-y: scroll;
+//     height: 62vh;
+//     width: fit-content;
+//     margin: 50px auto 0 auto;
+
+//     /* width */
+//     &::-webkit-scrollbar {
+//       width: 10px;
+
+//       background-color: #f5f5f5;
+//     }
+
+//     /* Track */
+//     &::-webkit-scrollbar-track {
+//       background: #f1f1f1;
+//     }
+
+//     /* Handle */
+//     &::-webkit-scrollbar-thumb {
+//       background: #888;
+//     }
+
+//     /* Handle on hover */
+//     &::-webkit-scrollbar-thumb:hover {
+//       background: #555;
+//     }
+
+//     .rankItemContainer {
+//       -webkit-box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
+//       -moz-box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
+//       box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
+//       border-radius: 10px;
+//       display: flex;
+//       width: 700px;
+//       position: relative;
+//       margin: 30px auto 0 auto;
+
+//       @include media('<=tablet-portrait') {
+//         width: 500px;
+//       }
+
+//       @include media('<=big-mobile') {
+//         width: auto;
+//         flex-direction: column;
+//       }
+
+//       .rankNumber {
+//         width: 90px;
+//         height: 90px;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         font-size: 30px;
+//         font-weight: 500;
+//         background: radial-gradient(
+//           white,
+//           white,
+//           mix(white, $pokeColor, 50%),
+//           $pokeColor,
+//           $pokeColor,
+//           $pokeColor
+//         );
+//         border-top-left-radius: 10px;
+//         border-bottom-left-radius: 10px;
+
+//         @include media('<=big-mobile') {
+//           height: 30px;
+//           font-size: 22px;
+//           width: 100%;
+//           background: none;
+//           border-top-left-radius: 50%;
+//           border-top-right-radius: 50%;
+//           border-bottom-left-radius: 0;
+//           background-color: $lightAquamarineColor;
+//           border-bottom: $textColor 3px solid;
+//         }
+//       }
+
+//       .place {
+//         display: flex;
+//         padding: 10px 20px;
+//         background-color: $lightAquamarineColor;
+//         border-top-right-radius: 10px;
+//         border-bottom-right-radius: 10px;
+//         width: calc(100% - 90px);
+//         justify-content: space-between;
+//         position: relative;
+
+//         @include media('<=big-mobile') {
+//           flex-direction: column;
+//           width: 100%;
+//           border-top-right-radius: 0;
+//           border-bottom-right-radius: 0;
+//         }
+
+//         &::before {
+//           content: '';
+//           background-color: $pokeColor;
+//           width: 0;
+//           position: absolute;
+//           top: 0;
+//           left: 0;
+//           transition: all linear 0.3s;
+//           height: 100%;
+//           z-index: 1;
+//           border-top-right-radius: 10px;
+//           border-bottom-right-radius: 10px;
+//         }
+
+//         &:hover {
+//           cursor: pointer;
+
+//           &::before {
+//             width: 100%;
+//           }
+
+//           @include media('<=big-mobile') {
+//             cursor: initial;
+
+//             &::before {
+//               width: 0;
+//             }
+//           }
+//         }
+
+//         .placeInfo {
+//           display: grid;
+//           grid-template-columns: repeat(3, auto);
+//           grid-template-areas:
+//             'placeName placeName placeName '
+//             'city date .';
+//           z-index: 2;
+
+//           @include media('<=big-mobile') {
+//             grid-template-columns: repeat(2, auto);
+//             grid-template-areas:
+//               'placeName placeName'
+//               'city date';
+//           }
+
+//           .placeName,
+//           .city,
+//           .date {
+//             @include media('<=big-mobile') {
+//               text-align: center;
+//             }
+//           }
+
+//           .placeName {
+//             grid-area: placeName;
+//             font-size: 24px;
+//           }
+
+//           .city {
+//             grid-area: city;
+//             font-size: 16px;
+//           }
+
+//           .date {
+//             grid-area: date;
+//             font-size: 16px;
+//             margin-left: 10px;
+
+//             @include media('<=big-mobile') {
+//               margin-left: 0;
+//             }
+//           }
+//         }
+
+//         .ourRating {
+//           grid-area: rating;
+//           width: 115px;
+//           display: flex;
+//           flex-wrap: wrap;
+//           justify-content: center;
+//           z-index: 2;
+
+//           @include media('<=big-mobile') {
+//             margin: 10px auto 0 auto;
+//           }
+
+//           .star {
+//             width: 20px;
+//             height: 20px;
+//             margin-right: 3px;
+//           }
+//           p {
+//             font-size: 14px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

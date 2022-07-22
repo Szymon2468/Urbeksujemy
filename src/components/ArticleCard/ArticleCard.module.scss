@@ -1,43 +1,66 @@
 @import '../../../styles/variables.scss';
 
-.articleCard {
-  height: fit-content;
-}
+.card {
+  width: 310px;
+  height: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
 
-.title {
-  color: $textColor;
-}
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 50%;
+    width: 0;
+    transition: all linear 0.3s;
+  }
 
-.description {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: $textColor;
-}
-
-.btn {
-  color: $pokeColor;
+  svg {
+    width: 40px;
+    height: 40px;
+    fill: transparent;
+    position: absolute;
+    top: 80px;
+    left: 135px;
+    transition: all linear 0.35s;
+  }
 
   &:hover {
-    background-color: #effbee;
+    cursor: pointer;
+
+    svg {
+      fill: $lightAquamarineColor;
+    }
+
+    &::before {
+      width: 100%;
+    }
   }
-}
 
-.HorizontalArticleCard {
-  display: flex;
-}
+  img {
+    width: 100%;
+    height: 50%;
+    margin-bottom: 2px;
+    object-fit: cover;
+    object-position: center;
+  }
 
-.cardContentContainer {
-  width: 50%;
-}
+  .content {
+    padding: 10px;
 
-.horizontalDescription {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: $textColor;
+    .date {
+      font-size: 14px;
+    }
+
+    .description {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-size: 18px;
+    }
+  }
 }

@@ -19,6 +19,7 @@ function ArticlesPage({ articles }) {
             }
             imgAlt={article.mainImage.alt}
             description={article.teaser}
+            date={article.date}
           />
         </div>
       ))}

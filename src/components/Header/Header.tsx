@@ -282,22 +282,22 @@ export const Header = () => {
           </Logo>
           <Menu>
             <Item>
-              <Link target='#' href='/przydatne-informacje'>
+              <Link href='/przydatne-informacje'>
                 <p className='hover-underline-animation'>INFORMACJE</p>
               </Link>
             </Item>
             <Item>
-              <Link target='#' href='/miejsca-na-urbex'>
+              <Link href='/miejsca-na-urbex'>
                 <p className='hover-underline-animation'>MIEJSCA</p>
               </Link>
             </Item>
             <Item>
-              <Link target='#' href='/ranking-miejsc-na-urbex'>
+              <Link href='/ranking-miejsc-na-urbex'>
                 <p className='hover-underline-animation'>RANKING</p>
               </Link>
             </Item>
             <Item>
-              <Link target='#' href='/o-nas'>
+              <Link href='/o-nas'>
                 <p className='hover-underline-animation'>O NAS</p>
               </Link>
             </Item>
@@ -348,7 +348,7 @@ export const Header = () => {
         <OverlayMenu open={toggle}>
           <Item overlay={true} open={toggle}>
             {toggle ? (
-              <Link target='#' href='/przydatne-informacje'>
+              <Link href='/przydatne-informacje'>
                 <p className='hover-underline-animation'>INFORMACJE</p>
               </Link>
             ) : (
@@ -357,7 +357,7 @@ export const Header = () => {
           </Item>
           <Item overlay={true} open={toggle}>
             {toggle ? (
-              <Link target='#' href='/miejsca-na-urbex'>
+              <Link href='/miejsca-na-urbex'>
                 <p className='hover-underline-animation'>MIEJSCA</p>
               </Link>
             ) : (
@@ -366,7 +366,7 @@ export const Header = () => {
           </Item>
           <Item overlay={true} open={toggle}>
             {toggle ? (
-              <Link target='#' href='/ranking-miejsc-na-urbex'>
+              <Link href='/ranking-miejsc-na-urbex'>
                 <p className='hover-underline-animation'>RANKING</p>
               </Link>
             ) : (
@@ -375,7 +375,7 @@ export const Header = () => {
           </Item>
           <Item overlay={true} open={toggle}>
             {toggle ? (
-              <Link target='#' href='/o-nas'>
+              <Link href='/o-nas'>
                 <p className='hover-underline-animation'>O NAS</p>
               </Link>
             ) : (

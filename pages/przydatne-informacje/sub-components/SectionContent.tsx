@@ -2,7 +2,7 @@ import styles from '../index.module.scss';
 import classNames from 'classnames';
 import Wave from '../../../public/assets/wave';
 
-const SectionContent = ({ imgSrc, text }) => {
+const SectionContent = ({ imgSrc, text, title }) => {
   return (
     <>
       <div className={styles.waveContainer}>
@@ -11,7 +11,8 @@ const SectionContent = ({ imgSrc, text }) => {
       <div className={classNames('container', styles.sectionContent)}>
         <img src={imgSrc} alt='abandoned building photo' />
         <div className={styles.textContainer}>
-          <p>{text}</p>
+          <h2>{title}</h2>
+          {text}
         </div>
       </div>
     </>

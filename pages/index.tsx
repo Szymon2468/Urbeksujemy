@@ -146,6 +146,7 @@ const RecentArticlesSection = ({ articles }: IHomeProps) => {
             title={el.place.placeName}
             description={el.teaser}
             imgAlt={el.mainImage.alt}
+            date={el.date}
             imgUrl={
               urlBuilder(sanityClient).image(el.mainImage).url() as string
             }

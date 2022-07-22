@@ -4,6 +4,8 @@ import { AiFillStar } from 'react-icons/ai';
 import { v4 } from 'uuid';
 import { sanityClient } from '../../sanity';
 import styles from './index.module.scss';
+import urlBuilder from '@sanity/image-url';
+import medalImg from '../../public/assets/medal.png';
 
 const filledStarScore = (ourRating) => {
   let result = [];
@@ -36,10 +38,8 @@ const filledStarScore = (ourRating) => {
   return result;
 };
 
-const RankItem = ({ placeName, ourRating, slug, city, date, nr }) => {
-  return (
-    <div className={styles.rankItemContainer}>
-      <div className={styles.rankNumber}>{nr}</div>
+{
+  /* <div className={styles.rankNumber}>{nr}</div>
       <Link href={`/miejsca-na-urbex/${slug}`}>
         <div className={styles.place}>
           <div className={styles.placeInfo}>
@@ -54,40 +54,85 @@ const RankItem = ({ placeName, ourRating, slug, city, date, nr }) => {
         </div>
       </Link>
     </div>
+        <div className={styles.rankItemContainer}>
+ */
+}
+
+const RankItem = ({
+  placeName,
+  ourRating,
+  slug,
+  city,
+  date,
+  nr,
+  imgSrc,
+  imgAlt,
+  teaser
+}) => {
+  return (
+    <div className={styles.rankItem}>
+      <div className={styles.photo}>
+        <div className={styles.vignette}></div>
+        <img src={imgSrc} alt={imgAlt} />
+
+        <span>
+          <div className={styles.medal}>
+            <p>{nr}</p>
+            <img src={medalImg.src} alt='medal photo' />
+          </div>
+          <div className={styles.ourRating}>
+            {filledStarScore(ourRating)}
+            <p>{ourRating}/10</p>
+          </div>
+        </span>
+      </div>
+
+      <div className={styles.info}>
+        <h2>
+          {city}, {placeName}
+        </h2>
+        <p className={styles.teaser}>{teaser}</p>
+        <span>
+          <p>{date}</p>
+          <Link href={`miejsca-na-urbex/${slug}`}>Czytaj więcej</Link>
+        </span>
+      </div>
+    </div>
   );
 };
 
 function RankingPage({ places }) {
   return (
-    <main>
-      <section className={styles.landingSection}>
-        <div className={styles.landingPage}>
-          <header>
-            <div>
-              <h1>
-                Zobacz ranking najlepszych miejsc na urbex, których nasza grupa
-                urbexowa podjęła się eksploracji
-              </h1>
-            </div>
-          </header>
+    <main className={styles.rankingMain}>
+      <header>
+        <div className='container'>
+          <h1>
+            Zobacz ranking najlepszych miejsc na urbex, których nasza grupa
+            urbexowa podjęła się eksploracji
+          </h1>
         </div>
-      </section>
+      </header>
 
-      <div className={classNames('container', styles.rankingContainer)}>
-        <section className={styles.section}>
-          {places.map((el, index) => (
-            <RankItem
-              key={v4()}
-              placeName={el.placeName}
-              ourRating={el.ourRating}
-              slug={el.article.slug.current}
-              city={el.city.city}
-              date={el.date}
-              nr={index + 1}
-            />
-          ))}
-        </section>
-      </div>
+      <section className={classNames('container', styles.rankingContainer)}>
+        {places.map((el, index) => (
+          <RankItem
+            key={v4()}
+            placeName={el.placeName}
+            ourRating={el.ourRating}
+            slug={el.article.slug.current}
+            city={el.city.city}
+            date={el.date}
+            nr={index + 1}
+            imgSrc={
+              urlBuilder(sanityClient)
+                .image(el.article.mainImage.asset)
+                .url() as string
+            }
+            teaser={el.article.teaser}
+            imgAlt={el.article.mainImage.alt}
+          />
+        ))}
+      </section>
     </main>
   );
 }
@@ -98,7 +143,7 @@ export const getStaticProps = async (context: any) => {
       placeName,
       city->{city},
       ourRating,
-      article->{slug},
+      article->{slug, mainImage, teaser},
       date
     }[0..9]
   `);
