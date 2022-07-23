@@ -1,0 +1,125 @@
+@import '../../../styles/variables.scss';
+
+.footer {
+  padding: 20px;
+  margin-top: 50px;
+  background-color: $pokeColor;
+
+  .footerContent {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 0 auto;
+    align-items: center;
+
+    @include media('<=tablet-portrait') {
+      &:nth-of-type(2n + 1) {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+      }
+    }
+
+    @include media('<=mid-mobile') {
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    &:nth-of-type(2n) {
+      margin-top: 10px;
+
+      @include media('<=mid-mobile') {
+        margin-top: 20px;
+      }
+    }
+
+    .logo {
+      @include media('<=mid-mobile') {
+        width: 100%;
+
+        img {
+          margin: 0 auto;
+        }
+      }
+    }
+
+    .policy {
+      margin: 0 auto;
+      width: fit-content;
+      white-space: nowrap;
+      padding: 0 20px;
+      transition: all 0.3s;
+
+      @include media('<=tablet-portrait') {
+        margin: 0;
+        padding: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: $lightAquamarineColor;
+      }
+    }
+
+    .footerBelt {
+      width: 100%;
+      height: 2px;
+      background-color: $textColor;
+      border-radius: 100%;
+
+      @include media('<=tablet-portrait') {
+        display: none;
+      }
+    }
+
+    .footerLinks {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      @include media('<=mid-mobile') {
+        flex-direction: column;
+      }
+
+      p {
+        height: fit-content;
+      }
+
+      p,
+      p:after,
+      p:before,
+      a,
+      a:after,
+      a:before {
+        transition: all 0.3s;
+      }
+      p:hover,
+      a:hover {
+        cursor: pointer;
+      }
+
+      p,
+      a {
+        position: relative;
+      }
+
+      p:after,
+      a:after {
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 0%;
+        content: '';
+        color: transparent;
+        background: $textColor;
+        height: 2px;
+      }
+      p:hover:after,
+      a:hover:after {
+        width: 100%;
+      }
+    }
+  }
+}

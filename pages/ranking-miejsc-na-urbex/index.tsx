@@ -6,6 +6,7 @@ import { sanityClient } from '../../sanity';
 import styles from './index.module.scss';
 import urlBuilder from '@sanity/image-url';
 import medalImg from '../../public/assets/medal.png';
+import { BsArrowRight } from 'react-icons/bs';
 
 const filledStarScore = (ourRating) => {
   let result = [];
@@ -94,7 +95,11 @@ const RankItem = ({
         <p className={styles.teaser}>{teaser}</p>
         <span>
           <p>{date}</p>
-          <Link href={`miejsca-na-urbex/${slug}`}>Czytaj więcej</Link>
+          <Link href={`miejsca-na-urbex/${slug}`}>
+            <div className={styles.readMore}>
+              Czytaj więcej <BsArrowRight />
+            </div>
+          </Link>
         </span>
       </div>
     </div>

@@ -1,1 +1,59 @@
 @import '../../styles/variables.scss';
+
+.landingPage {
+  min-height: calc(100vh - 75px);
+  width: 100vw;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url('../../public/assets/urbexPhotos/urbexPhoto7.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  margin-bottom: -50px;
+
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    h1 {
+      color: $lightAquamarineColor;
+      text-align: center;
+
+      @include media('<=tablet-portrait') {
+        width: 90%;
+        text-align: center;
+        margin: 0 auto;
+        font-size: 30px;
+      }
+
+      @include media('<=big-mobile') {
+        width: 100%;
+        padding: 0 10px;
+        font-size: 28px;
+      }
+
+      @include media('<=mobile') {
+        width: 100%;
+        padding: 0 5px;
+      }
+    }
+  }
+
+  p {
+    color: $lightAquamarineColor;
+    letter-spacing: 0.5px;
+
+    @include media('<=big-mobile') {
+      text-align: center;
+    }
+  }
+
+  div {
+    &:last-child {
+      margin-bottom: 50px;
+    }
+  }
+}

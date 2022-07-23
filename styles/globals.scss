@@ -233,19 +233,19 @@ h3,
 @include media('>=mobile') {
   p,
   .p {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     color: $textColor;
   }
 
   p.smaller {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     color: $textColor;
   }
 
   .p-smaller {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     color: $textColor;
   }
