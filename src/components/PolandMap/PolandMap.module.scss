@@ -1,0 +1,54 @@
+@import '../../../styles/variables.scss';
+
+.mapContainer {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  height: 600px;
+  display: block;
+  position: relative;
+
+  .description {
+    position: fixed;
+    width: fit-content;
+  }
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  fill: rgb(153, 153, 153);
+}
+
+.selectCities {
+  margin: 0 auto;
+  display: block;
+  width: 400px;
+  height: 150px;
+  margin-bottom: 50px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.selectCities label {
+  display: block;
+  margin: 5px;
+}
+
+.voivodship {
+  position: relative;
+}
+
+.voivodship:hover {
+  fill: $pokeColor;
+  cursor: pointer;
+}
+
+.voivodship.active {
+  fill: green;
+}
+
+.city {
+  fill: black;
+  stroke: red;
+}

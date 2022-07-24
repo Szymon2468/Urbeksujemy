@@ -16,18 +16,42 @@ import photo9 from '../public/assets/urbexPhotos/urbexPhoto9.webp';
 import photo10 from '../public/assets/urbexPhotos/urbexPhoto10.webp';
 import photo11 from '../public/assets/urbexPhotos/urbexPhoto11.webp';
 import photo12 from '../public/assets/urbexPhotos/urbexPhoto12.webp';
-import PolandMap from '../public/assets/PolandMap';
+import PolandMap from '../src/components/PolandMap/PolandMap';
 import ArticleCard from '../src/components/ArticleCard/ArticleCard';
 import { sanityClient } from '../sanity';
 import { v4 } from 'uuid';
 import urlBuilder from '@sanity/image-url';
 import IArticle from '../src/homepage.def';
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import useCursorPosition from '../src/hooks/useCursorPosition';
 
 interface IHomeProps {
   articles: IArticle[];
 }
 
 export default function Home({ articles }: IHomeProps) {
+  // const [cursorPosition, setCursorPosition] = useState(useCursorPosition());
+
+  // const cursorPosition = useCursorPosition();
+
+  // console.log(cursorPosition);
+
+  // useEffect(() => {
+  //   // 👇️ get global mouse coordinates
+  //   const handleWindowMouseMove = (event) => {
+  //     setCursorPosition({
+  //       X: event.screenX,
+  //       Y: event.screenY
+  //     });
+  //   };
+  //   window.addEventListener('mousemove', handleWindowMouseMove);
+
+  //   return () => {
+  //     window.removeEventListener('mousemove', handleWindowMouseMove);
+  //   };
+  // }, []);
+
   return (
     <>
       <main>
@@ -86,9 +110,16 @@ export default function Home({ articles }: IHomeProps) {
           <DescriptionSection />
         </section> */}
 
-        {/* <section>
-          <MapSection />
-        </section> */}
+        <section>
+          <div className='container'>
+            <h2 className={styles.title}>
+              Wybierz województwo, które Cię interesuje
+            </h2>
+            <div className={styles.map}>
+              <PolandMap />
+            </div>
+          </div>
+        </section>
 
         <section>
           <RecentArticlesSection articles={articles} />
@@ -115,19 +146,6 @@ const DescriptionSection = () => {
           stan, zgodnie z zasadą take only pictures, leave only footsteps
           (zabierz tylko zdjęcia, zostaw tylko ślady stóp).
         </p>
-      </div>
-    </div>
-  );
-};
-
-const MapSection = () => {
-  return (
-    <div className='container'>
-      <h2 className={styles.title}>
-        Wybierz województwo, które Cię interesuje
-      </h2>
-      <div className={styles.map}>
-        <PolandMap />
       </div>
     </div>
   );
