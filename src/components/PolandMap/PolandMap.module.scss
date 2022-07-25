@@ -8,6 +8,11 @@
   display: block;
   position: relative;
 
+  @include media('<=tablet-portrait') {
+    max-width: 500px;
+    height: 500px;
+  }
+
   .description {
     position: fixed;
     width: fit-content;

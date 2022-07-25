@@ -2,8 +2,7 @@ import styles from './PolandMap.module.scss';
 import { cities } from './cities';
 import { useState } from 'react';
 
-function PolandMap() {
-  const [clickedState, setClickedState] = useState('');
+function PolandMap({ setClickedState }) {
   const [stateName, setStateName] = useState('');
 
   const handleMouseMove = (event) => {
@@ -17,6 +16,7 @@ function PolandMap() {
 
   const handleStateClick = (e) => {
     setClickedState(e.target.dataset.name);
+    console.log(e.target.dataset.name);
   };
 
   const handleStateMouseEnter = (e) => {

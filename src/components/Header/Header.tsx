@@ -33,6 +33,7 @@ const Container = styled.div`
 const Logo = styled.h1`
   font-size: 25px;
   color: white;
+  z-index: 1000000000;
 `;
 
 const Menu = styled.ul`
@@ -88,6 +89,7 @@ const NavIcon = styled.button`
   cursor: pointer;
   border: none;
   outline: none;
+  z-index: 1000000000;
 
   @media (min-width: 1025px) {
     display: none;
@@ -134,7 +136,7 @@ const Overlay = styled.div`
 `;
 
 const OverlayMenu = styled.ul`
-  display: flex;
+  display: ${(props) => (props.open ? 'flex' : 'none')};
   justify-content: space-around;
   align-items: center;
   width: 80%;
@@ -241,6 +243,7 @@ const Button = styled.button`
   border: none;
   outline: none;
   color: white;
+  z-index: 1000000000;
 
   svg {
     fill: var(--text-color);

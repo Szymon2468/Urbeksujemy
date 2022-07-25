@@ -47,14 +47,6 @@
   align-items: center;
 }
 
-.map {
-  width: fit-content;
-  margin: 0 auto;
-
-  width: 700px;
-  height: 700px;
-}
-
 .recentArticlesContainer {
   display: grid;
   grid-template: auto / repeat(3, 1fr);

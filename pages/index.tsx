@@ -23,7 +23,7 @@ import { v4 } from 'uuid';
 import urlBuilder from '@sanity/image-url';
 import IArticle from '../src/homepage.def';
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
+
 import useCursorPosition from '../src/hooks/useCursorPosition';
 
 interface IHomeProps {
@@ -106,9 +106,9 @@ export default function Home({ articles }: IHomeProps) {
           </Swiper>
         </section>
 
-        {/* <section>
+        <section>
           <DescriptionSection />
-        </section> */}
+        </section>
 
         <section>
           <div className='container'>
