@@ -9,12 +9,6 @@ import { useEffect, useState } from 'react';
 
 function ArticlesPage({ articles }) {
   const [clickedState, setClickedState] = useState('');
-  const [reload, setReload] = useState(false);
-
-  useEffect(() => {
-    setReload(!reload);
-    console.log('clickedState', clickedState);
-  }, [clickedState]);
 
   return (
     <main>

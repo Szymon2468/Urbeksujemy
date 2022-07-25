@@ -31,6 +31,8 @@ interface IHomeProps {
 }
 
 export default function Home({ articles }: IHomeProps) {
+  const [clickedState, setClickedState] = useState('');
+
   // const [cursorPosition, setCursorPosition] = useState(useCursorPosition());
 
   // const cursorPosition = useCursorPosition();
@@ -116,13 +118,57 @@ export default function Home({ articles }: IHomeProps) {
               Wybierz województwo, które Cię interesuje
             </h2>
             <div className={styles.map}>
-              <PolandMap />
+              <PolandMap setClickedState={setClickedState} />
             </div>
           </div>
         </section>
 
         <section>
-          <RecentArticlesSection articles={articles} />
+          <div className='container'>
+            <h2 className={styles.title}>
+              Przeglądaj ostatnio odwiedzine przez nas miejsca
+            </h2>
+            <div className={styles.recentArticlesContainer}>
+              {clickedState === '' &&
+                articles.map((article) => (
+                  <div key={v4()} className={styles.cardContainer}>
+                    <ArticleCard
+                      key={v4()}
+                      title={article.place.placeName}
+                      description={article.teaser}
+                      imgAlt={article.mainImage.alt}
+                      date={article.date}
+                      imgUrl={
+                        urlBuilder(sanityClient)
+                          .image(article.mainImage)
+                          .url() as string
+                      }
+                    />
+                  </div>
+                ))}
+
+              {clickedState !== '' &&
+                articles.map(
+                  (article) =>
+                    article.place.city.state.state === clickedState && (
+                      <div key={v4()} className={styles.cardContainer}>
+                        <ArticleCard
+                          key={v4()}
+                          title={article.place.placeName}
+                          description={article.teaser}
+                          imgAlt={article.mainImage.alt}
+                          date={article.date}
+                          imgUrl={
+                            urlBuilder(sanityClient)
+                              .image(article.mainImage)
+                              .url() as string
+                          }
+                        />
+                      </div>
+                    )
+                )}
+            </div>
+          </div>
         </section>
       </main>
     </>
@@ -146,30 +192,6 @@ const DescriptionSection = () => {
           stan, zgodnie z zasadą take only pictures, leave only footsteps
           (zabierz tylko zdjęcia, zostaw tylko ślady stóp).
         </p>
-      </div>
-    </div>
-  );
-};
-
-const RecentArticlesSection = ({ articles }: IHomeProps) => {
-  return (
-    <div className='container'>
-      <h2 className={styles.title}>
-        Przeglądaj ostatnio odwiedzine przez nas miejsca
-      </h2>
-      <div className={styles.recentArticlesContainer}>
-        {articles.map((el) => (
-          <ArticleCard
-            key={v4()}
-            title={el.place.placeName}
-            description={el.teaser}
-            imgAlt={el.mainImage.alt}
-            date={el.date}
-            imgUrl={
-              urlBuilder(sanityClient).image(el.mainImage).url() as string
-            }
-          />
-        ))}
       </div>
     </div>
   );
