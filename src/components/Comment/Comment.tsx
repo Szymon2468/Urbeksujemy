@@ -24,7 +24,9 @@ function Comment({ author, rating, comment, date }) {
 
           <div className={styles.date}>
             <MdOutlineWatchLater />
-            {date}
+            {new Date(date).toLocaleDateString().toString()}
+            {'   '}
+            {new Date(date).toLocaleTimeString().toString()}
           </div>
         </div>
       </div>

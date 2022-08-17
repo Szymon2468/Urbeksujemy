@@ -24,6 +24,12 @@
     gap: 0;
   }
 
+  .polandMapDiv {
+    @include media('<=tablet-landscape') {
+      margin: 30px auto;
+    }
+  }
+
   .polandMapText {
     width: calc(100% - 700px);
 
@@ -40,6 +46,10 @@
   .hiddenText {
     display: none;
 
+    h3 {
+      margin-bottom: 10px;
+    }
+
     @include media('<=tablet-landscape') {
       display: initial;
     }
@@ -55,6 +65,10 @@
 
   .linksContainer {
     width: fit-content;
+
+    @include media('<=tablet-landscape') {
+      margin-left: 15px;
+    }
   }
 
   .link {
@@ -295,26 +309,30 @@
               margin-left: 15px;
               color: $lightAquamarineColor;
 
-              @include media('>=tablet-portrait', '<=tablet-landscape') {
-                width: 15px;
-                height: 15px;
-              }
-
-              @include media('>=tablet-landscape') {
-                width: 20px;
-                height: 20px;
-              }
-
               @include media('>=desktop') {
                 margin-left: 25px;
               }
 
               @include media('>=tablet-landscape') {
+                width: 20px;
+                height: 20px;
+
                 &:hover {
                   cursor: pointer;
                   transition: 0.3s;
                   transform: scale(1.2);
                 }
+              }
+
+              @include media('>=tablet-portrait', '<=tablet-landscape') {
+                width: 15px;
+                height: 15px;
+              }
+
+              @include media('<=tablet-portrait') {
+                width: 25px;
+                height: 25px;
+                margin-right: 20px !important;
               }
             }
           }

@@ -251,7 +251,7 @@ export const getStaticProps = async (context: any) => {
 
   const comments = await sanityClient.fetch(
     `
-    *[_type == "comments" && references($articleId) && approved][] {
+    *[_type == "comments" && references($articleId) && approved] | order(_createdAt asc)[] {
       article->,
       approved,
       author,

@@ -120,7 +120,7 @@ const Overlay = styled.div`
   width: 100vw;
   background: #1c2022;
   transition: height 0.4s ease-in-out;
-  z-index: 999999;
+  z-index: 9999999999999;
   // border-bottom: ${(props) =>
     props.open ? 'solid 2px var(--poke-color)' : 'none'};
 

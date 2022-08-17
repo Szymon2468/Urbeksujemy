@@ -18,9 +18,23 @@
     height: 500px;
   }
 
+  @include media('<=tablet-portrait') {
+    width: 400px;
+    height: fit-content;
+  }
+
+  @include media('<=mobile') {
+    width: 300px;
+    height: fit-content;
+  }
+
   .description {
     position: fixed;
     width: fit-content;
+
+    @include media('<=tablet-landscape') {
+      display: none;
+    }
   }
 }
 

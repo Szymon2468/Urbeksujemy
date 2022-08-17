@@ -44,7 +44,9 @@ function ArticlesPage({ articles, places }) {
               </div>
             </div>
           </span>
-          <PolandMap setClickedState={setClickedState} />
+          <span className={styles.polandMapDiv}>
+            <PolandMap setClickedState={setClickedState} />
+          </span>
           <div className={styles.hiddenText}>
             <h3>
               Zerknij na 5 najlepiej ocenianych przez naszą grupę urbexową
