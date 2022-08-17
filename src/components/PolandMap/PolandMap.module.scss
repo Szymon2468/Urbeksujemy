@@ -8,7 +8,12 @@
   display: block;
   position: relative;
 
-  @include media('<=tablet-portrait') {
+  @include media('<=small-desktop') {
+    max-width: 550px;
+    height: 550px;
+  }
+
+  @include media('<=tablet-landscape') {
     max-width: 500px;
     height: 500px;
   }

@@ -9,12 +9,91 @@
   display: flex;
   gap: 100px;
   align-items: center;
+  margin: 20px auto;
   // margin: 0 auto;
   // width: 600px;
   // height: 600px;
 
+  @include media('<=small-desktop') {
+    gap: 50px;
+  }
+
+  @include media('<=tablet-landscape') {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .polandMapText {
+    width: calc(100% - 700px);
+
+    @include media('<=small-desktop') {
+      width: calc(100% - 600px);
+    }
+
+    @include media('<=tablet-landscape') {
+      width: 100%;
+      margin-top: 30px;
+    }
+  }
+
+  .hiddenText {
+    display: none;
+
+    @include media('<=tablet-landscape') {
+      display: initial;
+    }
+  }
+
+  .displayedText {
+    display: initial;
+
+    @include media('<=tablet-landscape') {
+      display: none;
+    }
+  }
+
+  .linksContainer {
+    width: fit-content;
+  }
+
+  .link {
+    width: fit-content;
+  }
+
   span {
     height: fit-content;
+
+    h3 {
+      margin: 30px 0 10px 0;
+    }
+  }
+
+  .topPlace {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 20px;
+    transition: all 0.3s linear;
+    margin-bottom: 3px;
+
+    p {
+      font-size: 20px !important;
+      margin-left: 0;
+    }
+
+    &:hover {
+      transform: translateX(10px);
+      cursor: pointer;
+
+      svg {
+        color: $pokeColor;
+      }
+
+      p {
+        color: $pokeColor;
+      }
+    }
   }
 }
 

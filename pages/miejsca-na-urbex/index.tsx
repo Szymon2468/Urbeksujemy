@@ -6,6 +6,8 @@ import styles from './index.module.scss';
 import urlBuilder from '@sanity/image-url';
 import PolandMap from '../../src/components/PolandMap/PolandMap';
 import { useState } from 'react';
+import { BsArrowRight } from 'react-icons/bs';
+import Link from 'next/link';
 
 function ArticlesPage({ articles, places }) {
   const [clickedState, setClickedState] = useState('');
@@ -16,22 +18,51 @@ function ArticlesPage({ articles, places }) {
     <main className={styles.placesMain}>
       <section>
         <div className={classNames(styles.polandMapContainer, 'container')}>
-          <span>
-            <h3>
+          <span className={styles.polandMapText}>
+            <h1 className='h2'>
               Wybierz województwo, które Cię interesuje i przeglądaj
               zlokaliozowane tam mijescówki na urbex
-            </h3>
-            <p>
-              Zerknij na 5 najlepiej ocenianych przez naszą grupę urbexową
-              miejscówek
-            </p>
-            <ul>
-              {places.map((place) => (
-                <li key={v4()}>{place.placeName}</li>
-              ))}
-            </ul>
+            </h1>
+            <div className={styles.displayedText}>
+              <h3>
+                Zerknij na 5 najlepiej ocenianych przez naszą grupę urbexową
+                miejscówek:
+              </h3>
+              <div className={styles.linksContainer}>
+                {places.map((place) => (
+                  <span key={v4()} className={styles.link}>
+                    <Link
+                      href={`miejsca-na-urbex/${place.article.slug.current}`}
+                    >
+                      <a className={styles.topPlace}>
+                        <BsArrowRight />
+                        <p>{place.placeName}</p>
+                      </a>
+                    </Link>
+                  </span>
+                ))}
+              </div>
+            </div>
           </span>
           <PolandMap setClickedState={setClickedState} />
+          <div className={styles.hiddenText}>
+            <h3>
+              Zerknij na 5 najlepiej ocenianych przez naszą grupę urbexową
+              miejscówek:
+            </h3>
+            <div className={styles.linksContainer}>
+              {places.map((place) => (
+                <span key={v4()} className={styles.link}>
+                  <Link href={`miejsca-na-urbex/${place.article.slug.current}`}>
+                    <a className={styles.topPlace}>
+                      <BsArrowRight />
+                      <p>{place.placeName}</p>
+                    </a>
+                  </Link>
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
         <div className={classNames(styles.gridArticlesContainer, 'container')}>
           {clickedState === '' &&
@@ -67,7 +98,7 @@ function ArticlesPage({ articles, places }) {
                       imgAlt={article.mainImage.alt}
                       description={article.teaser}
                       date={article.date}
-                      slug={article.slug}
+                      slug={article.slug.current}
                     />
                   </div>
                 )
