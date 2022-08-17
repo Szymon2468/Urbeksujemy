@@ -11,7 +11,7 @@ function ArticlesPage({ articles }) {
   const [clickedState, setClickedState] = useState('');
 
   return (
-    <main>
+    <main className={styles.placesMain}>
       <section>
         <div className={classNames(styles.polandMapContainer, 'container')}>
           <PolandMap setClickedState={setClickedState} />
@@ -30,6 +30,7 @@ function ArticlesPage({ articles }) {
                   imgAlt={article.mainImage.alt}
                   description={article.teaser}
                   date={article.date}
+                  slug={article.slug.current}
                 />
               </div>
             ))}
@@ -49,6 +50,7 @@ function ArticlesPage({ articles }) {
                       imgAlt={article.mainImage.alt}
                       description={article.teaser}
                       date={article.date}
+                      slug={article.slug}
                     />
                   </div>
                 )

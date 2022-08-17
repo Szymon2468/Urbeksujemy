@@ -24,35 +24,12 @@ import urlBuilder from '@sanity/image-url';
 import IArticle from '../src/homepage.def';
 import { useEffect, useState } from 'react';
 
-import useCursorPosition from '../src/hooks/useCursorPosition';
-
 interface IHomeProps {
   articles: IArticle[];
 }
 
 export default function Home({ articles }: IHomeProps) {
   const [clickedState, setClickedState] = useState('');
-
-  // const [cursorPosition, setCursorPosition] = useState(useCursorPosition());
-
-  // const cursorPosition = useCursorPosition();
-
-  // console.log(cursorPosition);
-
-  // useEffect(() => {
-  //   // 👇️ get global mouse coordinates
-  //   const handleWindowMouseMove = (event) => {
-  //     setCursorPosition({
-  //       X: event.screenX,
-  //       Y: event.screenY
-  //     });
-  //   };
-  //   window.addEventListener('mousemove', handleWindowMouseMove);
-
-  //   return () => {
-  //     window.removeEventListener('mousemove', handleWindowMouseMove);
-  //   };
-  // }, []);
 
   return (
     <>

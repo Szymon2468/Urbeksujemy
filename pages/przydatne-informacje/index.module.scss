@@ -9,7 +9,7 @@
 
   h1 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 30px !important;
 
     span {
       color: $pokeColor;
@@ -178,7 +178,7 @@
       p,
       img,
       .textContainer {
-        z-index: 1e9;
+        z-index: 1e5;
       }
     }
   }

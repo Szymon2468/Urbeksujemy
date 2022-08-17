@@ -37,12 +37,36 @@
 .rankingContainer {
   margin-top: 50px;
 
+  @include media('<=tablet-portrait') {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
   .rankItem {
     display: flex;
     margin-bottom: 50px;
-    gap: 100px;
-    align-items: center;
+    gap: 50px;
     height: fit-content;
+
+    @include media('<=tablet-landscape') {
+      gap: 20px;
+      height: fit-content;
+      margin-bottom: 40px;
+    }
+
+    @include media('<=tablet-portrait') {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      flex-direction: column;
+      width: 400px;
+      margin-bottom: 0;
+      gap: 0;
+    }
+
+    @include media('<=big-mobile') {
+      width: 320px;
+    }
 
     .photo {
       position: relative;
@@ -50,7 +74,23 @@
       height: 300px;
       display: flex;
       align-items: center;
-      border-radius: 10px;
+      // border-radius: 10px;
+
+      @include media('<=tablet-landscape') {
+        height: initial;
+        width: 40%;
+        border-radius: 0;
+      }
+
+      @include media('<=tablet-portrait') {
+        width: 400px;
+        height: 300px;
+      }
+
+      @include media('<=big-mobile') {
+        width: 320px;
+        height: 240px;
+      }
 
       img {
         position: absolute;
@@ -59,7 +99,11 @@
         width: 100%;
         height: 100%;
         z-index: 1e6;
-        border-radius: 10px;
+        // border-radius: 10px;
+
+        @include media('<=tablet-landscape') {
+          border-radius: 0;
+        }
       }
 
       .vignette {
@@ -70,8 +114,12 @@
         width: 100%;
         height: 100%;
         z-index: 1e7;
-        border-radius: 10px;
+        // border-radius: 10px;
         opacity: 0.4;
+
+        @include media('<=tablet-landscape') {
+          border-radius: 0;
+        }
       }
 
       span {
@@ -110,9 +158,9 @@
           justify-content: center;
           z-index: 2;
 
-          @include media('<=big-mobile') {
-            margin: 10px auto 0 auto;
-          }
+          // @include media('<=big-mobile') {
+          //   margin: 10px auto 0 auto;
+          // }
 
           .star {
             width: 20px;
@@ -133,12 +181,35 @@
       width: max-content;
       height: auto;
 
+      @include media('<=tablet-portrait') {
+        width: 100%;
+        padding: 10px;
+      }
+
       h2 {
         font-size: 30px;
+
+        @include media('<=tablet-landscape') {
+          font-size: 24px;
+          // height: 72px;
+          // display: -webkit-box;
+          // -webkit-line-clamp: 2;
+          // -webkit-box-orient: vertical;
+          // overflow: hidden;
+        }
       }
 
       .teaser {
         margin: 30px 0;
+
+        @include media('<=tablet-landscape') {
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          font-size: 18px;
+          margin: 15px 0 20px 0;
+        }
       }
 
       span {
@@ -164,6 +235,10 @@
 
           svg {
             transform: translateX(5px);
+
+            @include media('<=tablet-landscape') {
+              transform: rotate(360deg);
+            }
           }
         }
 
@@ -171,6 +246,10 @@
           transition: all 0.3s linear;
           width: 20px;
           height: 20px;
+
+          @include media('<=tablet-landscape') {
+            transition: all 0.5s ease-in-out;
+          }
         }
       }
     }

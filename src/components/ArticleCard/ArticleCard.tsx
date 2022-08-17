@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { BsArrowRightCircle } from 'react-icons/bs';
 import styles from './ArticleCard.module.scss';
 
@@ -6,18 +7,23 @@ export default function ArticleCard({
   imgUrl,
   imgAlt,
   description,
-  date
+  date,
+  slug
 }) {
   return (
-    <div className={styles.card}>
-      <BsArrowRightCircle />
-      <img src={imgUrl} alt={imgAlt} />
-      <div className={styles.content}>
-        <p className={styles.date}>{date}</p>
-        <h2>{title}</h2>
-        <p className={styles.description}>{description}</p>
-      </div>
-    </div>
+    <Link href={`/miejsca-na-urbex/${slug}`}>
+      <a>
+        <div className={styles.card}>
+          <BsArrowRightCircle />
+          <img src={imgUrl} alt={imgAlt} />
+          <div className={styles.content}>
+            <p className={styles.date}>{date}</p>
+            <h2>{title}</h2>
+            <p className={styles.description}>{description}</p>
+          </div>
+        </div>
+      </a>
+    </Link>
   );
   // <Card sx={{ maxWidth: 300 }} className={styles.articleCard}>
   //   <CardMedia component='img' height='180' image={imgUrl} alt={imgAlt} />
