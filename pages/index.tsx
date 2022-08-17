@@ -120,6 +120,7 @@ export default function Home({ articles }: IHomeProps) {
                           .image(article.mainImage)
                           .url() as string
                       }
+                      slug={article.slug.current}
                     />
                   </div>
                 ))}
@@ -140,6 +141,7 @@ export default function Home({ articles }: IHomeProps) {
                               .image(article.mainImage)
                               .url() as string
                           }
+                          slug={article.slug.current}
                         />
                       </div>
                     )

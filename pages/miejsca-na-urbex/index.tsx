@@ -5,15 +5,32 @@ import ArticleCard from '../../src/components/ArticleCard/ArticleCard';
 import styles from './index.module.scss';
 import urlBuilder from '@sanity/image-url';
 import PolandMap from '../../src/components/PolandMap/PolandMap';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-function ArticlesPage({ articles }) {
+function ArticlesPage({ articles, places }) {
   const [clickedState, setClickedState] = useState('');
+
+  console.log(places);
 
   return (
     <main className={styles.placesMain}>
       <section>
         <div className={classNames(styles.polandMapContainer, 'container')}>
+          <span>
+            <h3>
+              Wybierz województwo, które Cię interesuje i przeglądaj
+              zlokaliozowane tam mijescówki na urbex
+            </h3>
+            <p>
+              Zerknij na 5 najlepiej ocenianych przez naszą grupę urbexową
+              miejscówek
+            </p>
+            <ul>
+              {places.map((place) => (
+                <li key={v4()}>{place.placeName}</li>
+              ))}
+            </ul>
+          </span>
           <PolandMap setClickedState={setClickedState} />
         </div>
         <div className={classNames(styles.gridArticlesContainer, 'container')}>
@@ -95,9 +112,20 @@ export const getStaticProps = async () => {
   `
   );
 
+  const places = await sanityClient.fetch(`
+    *[_type == "place"] | order(ourRating desc)[] {
+      placeName,
+      city->{city},
+      ourRating,
+      article->{slug, mainImage, teaser},
+      date
+    }[0..4]
+  `);
+
   return {
     props: {
-      articles
+      articles,
+      places
     }
   };
 };
