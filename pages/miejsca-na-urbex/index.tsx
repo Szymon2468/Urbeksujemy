@@ -9,10 +9,29 @@ import { useState } from 'react';
 import { BsArrowRight } from 'react-icons/bs';
 import Link from 'next/link';
 
-function ArticlesPage({ articles, places }) {
+function ArticlesPage({ articles, places, placesForPolandMap }) {
   const [clickedState, setClickedState] = useState('');
+  const [mapPlaces, setMapPlaces] = useState(placesForPolandMap);
 
-  console.log(places);
+  const onPlaceLinkMouseEnter = (placeName) => {
+    const newMapPlaces = mapPlaces.map((el) => {
+      return {
+        ...el,
+        active: el.name === placeName
+      };
+    });
+    setMapPlaces(newMapPlaces);
+  };
+
+  const onPlaceLinkMouseLeave = () => {
+    const newMapPlaces = mapPlaces.map((el) => {
+      return {
+        ...el,
+        active: false
+      };
+    });
+    setMapPlaces(newMapPlaces);
+  };
 
   return (
     <main className={styles.placesMain}>
@@ -34,7 +53,13 @@ function ArticlesPage({ articles, places }) {
                     <Link
                       href={`miejsca-na-urbex/${place.article.slug.current}`}
                     >
-                      <a className={styles.topPlace}>
+                      <a
+                        className={styles.topPlace}
+                        onMouseEnter={() =>
+                          onPlaceLinkMouseEnter(place.placeName)
+                        }
+                        onMouseLeave={() => onPlaceLinkMouseLeave()}
+                      >
                         <BsArrowRight />
                         <p>{place.placeName}</p>
                       </a>
@@ -45,7 +70,10 @@ function ArticlesPage({ articles, places }) {
             </div>
           </span>
           <span className={styles.polandMapDiv}>
-            <PolandMap setClickedState={setClickedState} />
+            <PolandMap
+              setClickedState={setClickedState}
+              placesForPolandMap={mapPlaces}
+            />
           </span>
           <div className={styles.hiddenText}>
             <h3>
@@ -56,7 +84,13 @@ function ArticlesPage({ articles, places }) {
               {places.map((place) => (
                 <span key={v4()} className={styles.link}>
                   <Link href={`miejsca-na-urbex/${place.article.slug.current}`}>
-                    <a className={styles.topPlace}>
+                    <a
+                      className={styles.topPlace}
+                      onMouseEnter={() =>
+                        onPlaceLinkMouseEnter(place.placeName)
+                      }
+                      onMouseLeave={() => onPlaceLinkMouseLeave()}
+                    >
                       <BsArrowRight />
                       <p>{place.placeName}</p>
                     </a>
@@ -155,10 +189,26 @@ export const getStaticProps = async () => {
     }[0..4]
   `);
 
+  let placesForPolandMap = await sanityClient.fetch(`
+    *[_type == "place"] | order(ourRating desc)[] {
+      placeName,
+      coordN,
+      coordE
+    }[0..4]
+  `);
+
+  placesForPolandMap = placesForPolandMap.map((el) => ({
+    name: el.placeName,
+    N: el.coordN,
+    E: el.coordE,
+    active: false
+  }));
+
   return {
     props: {
       articles,
-      places
+      places,
+      placesForPolandMap
     }
   };
 };

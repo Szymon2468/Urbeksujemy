@@ -1,8 +1,10 @@
 import styles from './PolandMap.module.scss';
 import { cities } from './cities';
-import { useState } from 'react';
+import { createElement, Fragment, useEffect, useState } from 'react';
+import { MdPlace } from 'react-icons/md';
+import { v4 } from 'uuid';
 
-function PolandMap({ setClickedState }) {
+function PolandMap({ setClickedState, placesForPolandMap }) {
   const [stateName, setStateName] = useState('');
 
   const handleMouseMove = (event) => {
@@ -15,8 +17,10 @@ function PolandMap({ setClickedState }) {
   };
 
   const handleStateClick = (e) => {
+    const states = document.querySelectorAll('[data-name]');
+    states.forEach((el) => el.classList.remove(styles.coloredState));
     setClickedState(e.target.dataset.name);
-    console.log(e.target.dataset.name);
+    e.target.classList.add(styles.coloredState);
   };
 
   const handleStateMouseEnter = (e) => {
@@ -47,6 +51,19 @@ function PolandMap({ setClickedState }) {
 
     return name;
   };
+
+  console.log(placesForPolandMap);
+
+  const mapEZero = 14.07, //X-axis
+    mapNZero = 54.9, //Y-axis
+    mapEFull = 24.27, //X-axis
+    mapNFull = 49.0; //Y-axis
+
+  const degN = 950 / Math.abs(mapNZero - mapNFull),
+    degE = 1000 / Math.abs(mapEZero - mapEFull);
+
+  const textXModifier = 10;
+  const textYModifier = 30;
 
   return (
     <div className={styles.mapContainer}>
@@ -225,7 +242,24 @@ function PolandMap({ setClickedState }) {
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         ></path>
-        <svg className='circles'></svg>
+        <svg className='circles'>
+          {placesForPolandMap.map((el) => {
+            if (el.active) {
+              let x = Math.round(Math.abs(el.E - mapEZero) * degE * 100) / 100;
+              let y = Math.round(Math.abs(el.N - mapNZero) * degN * 100) / 100;
+              return (
+                <MdPlace
+                  className={styles.pin}
+                  key={v4()}
+                  x={(x - 20 - textXModifier).toString()}
+                  y={(y - 30 - textYModifier).toString()}
+                />
+              );
+            } else {
+              <Fragment key={v4()}></Fragment>;
+            }
+          })}
+        </svg>
       </svg>
     </div>
   );

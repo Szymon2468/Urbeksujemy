@@ -76,3 +76,12 @@
   fill: black;
   stroke: red;
 }
+
+.pin {
+  fill: rgb(200, 0, 0);
+  font-size: 70px;
+}
+
+.coloredState {
+  fill: $pokeColor;
+}

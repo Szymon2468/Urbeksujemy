@@ -26,15 +26,17 @@ import { useEffect, useState } from 'react';
 
 interface IHomeProps {
   articles: IArticle[];
+  placesForPolandMap: any;
 }
 
-export default function Home({ articles }: IHomeProps) {
+export default function Home({ articles, placesForPolandMap }: IHomeProps) {
   const [clickedState, setClickedState] = useState('');
+  const [mapPlaces, setMapPlaces] = useState(placesForPolandMap);
 
   return (
     <>
       <main>
-        <section>
+        <section className={styles.swiperSection}>
           <Swiper
             cssMode={true}
             navigation={true}
@@ -95,7 +97,10 @@ export default function Home({ articles }: IHomeProps) {
               Wybierz województwo, które Cię interesuje
             </h2>
             <div className={styles.map}>
-              <PolandMap setClickedState={setClickedState} />
+              <PolandMap
+                setClickedState={setClickedState}
+                placesForPolandMap={mapPlaces}
+              />
             </div>
           </div>
         </section>
@@ -205,5 +210,21 @@ export const getStaticProps = async (context: any) => {
       title,
     }[0..5]
   `);
-  return { props: { articles } };
+
+  let placesForPolandMap = await sanityClient.fetch(`
+  *[_type == "place"] | order(ourRating desc)[] {
+    placeName,
+    coordN,
+    coordE
+  }[0..4]
+`);
+
+  placesForPolandMap = placesForPolandMap.map((el) => ({
+    name: el.placeName,
+    N: el.coordN,
+    E: el.coordE,
+    active: false
+  }));
+
+  return { props: { articles, placesForPolandMap } };
 };

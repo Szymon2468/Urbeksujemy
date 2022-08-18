@@ -327,6 +327,10 @@ h3,
 .swiper {
   width: 100%;
   height: 100%;
+
+  @include media('<=big-mobile') {
+    height: 550px !important;
+  }
 }
 
 .swiper-slide {
@@ -348,6 +352,12 @@ h3,
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+
+  @include media('<=big-mobile') {
+    img {
+      width: 90% !important;
+    }
+  }
 }
 
 .swiper-slide img {
