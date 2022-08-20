@@ -51,7 +51,9 @@ function ArticlesPage({ articles, places, placesForPolandMap }) {
                 {places.map((place) => (
                   <span key={v4()} className={styles.link}>
                     <Link
-                      href={`miejsca-na-urbex/${place.article.slug.current}`}
+                      href={`miejsca-na-urbex/${
+                        place.article?.slug.current || ''
+                      }`}
                     >
                       <a
                         className={styles.topPlace}
@@ -83,7 +85,11 @@ function ArticlesPage({ articles, places, placesForPolandMap }) {
             <div className={styles.linksContainer}>
               {places.map((place) => (
                 <span key={v4()} className={styles.link}>
-                  <Link href={`miejsca-na-urbex/${place.article.slug.current}`}>
+                  <Link
+                    href={`miejsca-na-urbex/${
+                      place.article?.slug.current || ''
+                    }`}
+                  >
                     <a
                       className={styles.topPlace}
                       onMouseEnter={() =>

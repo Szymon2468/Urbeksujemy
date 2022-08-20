@@ -81,8 +81,14 @@
     .btnContainer {
       width: 100%;
       display: flex;
-      justify-content: flex-end;
+      flex-direction: column-reverse;
+      align-items: flex-end;
       margin-top: 20px;
+      gap: 10px;
+
+      p {
+        color: rgb(180, 0, 0);
+      }
 
       button {
         background-color: $textColor;

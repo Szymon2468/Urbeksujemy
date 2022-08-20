@@ -19,6 +19,13 @@
     transition: all linear 0.3s;
   }
 
+  h2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   svg {
     width: 40px;
     height: 40px;

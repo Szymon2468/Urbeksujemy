@@ -33,10 +33,11 @@ const blockContentType = defaultSchema
   .get('blogPost')
   .fields.find((field) => field.name === 'body').type;
 
-function CommentInput({ articleId }) {
+function CommentInput({ articleId, articleTitle }) {
   const [state, setState] = useState({ author: '', comment: '' });
   const [rating, setRating] = useState(0);
   const [isCommentSent, setIsCommentSent] = useState(false);
+  const [isDataMissing, setIsDataMissing] = useState(false);
 
   useEffect(() => {
     let stars = Array.from(document.querySelectorAll('div[data-rating]'));
@@ -150,6 +151,10 @@ function CommentInput({ articleId }) {
     );
   };
 
+  const sendEmail = async () => {
+    await axios.post('/api/email', { article: articleTitle });
+  };
+
   return (
     <div className={styles.titlePositioning}>
       {!isCommentSent && (
@@ -180,9 +185,29 @@ function CommentInput({ articleId }) {
             onChange={handleChange}
           />
           <div className={styles.btnContainer}>
-            <button type='submit' onClick={() => setIsCommentSent(true)}>
+            <button
+              type='submit'
+              onClick={() => {
+                if (
+                  state.author.length > 0 &&
+                  state.comment.length > 0 &&
+                  rating > 0
+                ) {
+                  setIsDataMissing(false);
+                  setIsCommentSent(true);
+                  sendEmail();
+                } else {
+                  setIsDataMissing(true);
+                }
+              }}
+            >
               Wyślij
             </button>
+            {isDataMissing && (
+              <p className={styles.missingDataError}>
+                Proszę uzupełnić wszystkie dane
+              </p>
+            )}
           </div>
         </form>
         {isCommentSent && (

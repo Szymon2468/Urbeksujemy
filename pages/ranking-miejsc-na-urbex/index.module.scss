@@ -201,6 +201,10 @@
 
       .teaser {
         margin: 30px 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
 
         @include media('<=tablet-landscape') {
           display: -webkit-box;

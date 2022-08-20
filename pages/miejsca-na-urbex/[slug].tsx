@@ -185,7 +185,11 @@ function ArticlePage({ article, comments }) {
                 ))}
             </div>
 
-            <CommentsSection comments={comments} articleId={article._id} />
+            <CommentsSection
+              comments={comments}
+              articleId={article._id}
+              articleTitle={article.title}
+            />
           </main>
           <span className={styles.aside}>
             <Aside />
@@ -263,12 +267,13 @@ export const getStaticProps = async (context: any) => {
     { articleId }
   );
 
-  article.place.photos = article.place.photos.map((photo) => {
-    return {
-      url: urlBuilder(sanityClient).image(photo.asset).url() as string,
-      alt: photo.alt
-    };
-  });
+  article.place.photos =
+    article.place?.photos?.map((photo) => {
+      return {
+        url: urlBuilder(sanityClient).image(photo.asset).url() as string,
+        alt: photo.alt
+      };
+    }) || [];
 
   return {
     props: {

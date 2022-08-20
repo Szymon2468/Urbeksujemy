@@ -4,7 +4,7 @@ import Comment from '../Comment/Comment';
 import CommentInput from '../CommentInput/CommentInput';
 import styles from './CommentsSection.module.scss';
 
-function CommentsSection({ articleId, comments }) {
+function CommentsSection({ articleId, comments, articleTitle }) {
   return (
     <section>
       <div className={styles.titleContainer}>
@@ -12,7 +12,7 @@ function CommentsSection({ articleId, comments }) {
         <h2 className={styles.title}>Komentarze do tego miejsca</h2>
         <div className={styles.belt}></div>
       </div>
-      <CommentInput articleId={articleId} />
+      <CommentInput articleId={articleId} articleTitle={articleTitle} />
       {comments.map((el) => (
         <Comment
           key={v4()}
