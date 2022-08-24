@@ -24,13 +24,19 @@ import urlBuilder from '@sanity/image-url';
 import IArticle from '../src/homepage.def';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
+import { BsArrowRight } from 'react-icons/bs';
 
 interface IHomeProps {
   articles: IArticle[];
   placesForPolandMap: any;
+  places: any;
 }
 
-export default function Home({ articles, placesForPolandMap }: IHomeProps) {
+export default function Home({
+  articles,
+  placesForPolandMap,
+  places
+}: IHomeProps) {
   const [clickedState, setClickedState] = useState('');
   const [mapPlaces, setMapPlaces] = useState(placesForPolandMap);
 
@@ -94,10 +100,35 @@ export default function Home({ articles, placesForPolandMap }: IHomeProps) {
         </section>
 
         <section>
-          <div className='container'>
-            <h2 className={styles.title}>
-              Wybierz województwo, które Cię interesuje
-            </h2>
+          <h2 className={styles.title}>
+            Wybierz województwo, które Cię interesuje
+          </h2>
+          <div className={classNames('container', styles.podiumContainer)}>
+            <div className={styles.podium}>
+              <div className={styles.pole}>
+                <span>
+                  <p>{places[0]?.placeName}</p>
+                  <BsArrowRight />
+                </span>
+                <div className={styles.p1}> </div>
+              </div>
+
+              <div className={styles.pole}>
+                <span>
+                  <p>{places[1]?.placeName}</p>
+                  <BsArrowRight />
+                </span>
+                <div className={styles.p2}> </div>
+              </div>
+
+              <div className={styles.pole}>
+                <span>
+                  <p>{places[2]?.placeName}</p>
+                  <BsArrowRight />
+                </span>
+                <div className={styles.p3}></div>
+              </div>
+            </div>
             <div className={styles.map}>
               <PolandMap
                 setClickedState={setClickedState}
@@ -223,6 +254,16 @@ export const getStaticProps = async (context: any) => {
   }[0..4]
 `);
 
+  const places = await sanityClient.fetch(`
+*[_type == "place"] | order(ourRating desc)[] {
+  placeName,
+  city->{city},
+  ourRating,
+  article->{slug, mainImage, teaser},
+  date
+}[0..2]
+`);
+
   placesForPolandMap = placesForPolandMap.map((el) => ({
     name: el.placeName,
     N: el.coordN,
@@ -230,5 +271,5 @@ export const getStaticProps = async (context: any) => {
     active: false
   }));
 
-  return { props: { articles, placesForPolandMap } };
+  return { props: { articles, placesForPolandMap, places } };
 };

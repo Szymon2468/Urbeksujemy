@@ -22,6 +22,60 @@
   font-size: 28px;
 }
 
+.podiumContainer {
+  .podium {
+    display: flex;
+    align-items: flex-end;
+
+    .pole {
+      span {
+        display: flex;
+        width: 100%;
+        padding: 10px;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 5px;
+
+        p {
+          width: fit-content;
+        }
+
+        svg {
+          height: 20px;
+          width: 20px;
+        }
+      }
+
+      p {
+        max-width: 155px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .p1,
+    .p2,
+    .p3 {
+      width: 200px;
+      background-color: rgb(220, 220, 0);
+    }
+
+    .p1 {
+      height: 100px;
+    }
+
+    .p2 {
+      height: 300px;
+    }
+
+    .p3 {
+      height: 200px;
+    }
+  }
+}
+
 .container,
 .DescContainer {
   width: 100%;
@@ -108,7 +162,7 @@
 
       @include media('<=big-mobile') {
         height: 350px;
-        max-width: 100% !important;
+        max-width: 10 0% !important;
       }
 
       @include media('<=mobile') {
