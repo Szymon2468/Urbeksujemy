@@ -23,6 +23,7 @@ import { v4 } from 'uuid';
 import urlBuilder from '@sanity/image-url';
 import IArticle from '../src/homepage.def';
 import { useEffect, useState } from 'react';
+import classNames from 'classnames';
 
 interface IHomeProps {
   articles: IArticle[];
@@ -88,6 +89,7 @@ export default function Home({ articles, placesForPolandMap }: IHomeProps) {
         </section>
 
         <section>
+          <h3 className={styles.descTitle}>Czym jest urbex?</h3>
           <DescriptionSection />
         </section>
 
@@ -161,23 +163,25 @@ export default function Home({ articles, placesForPolandMap }: IHomeProps) {
 
 const DescriptionSection = () => {
   return (
-    <div className={styles.DescContainer}>
-      <div className={styles.imgContainer}>
-        <img src={photo1.src} alt='photo from an urbex' />
+    <>
+      <div className={classNames('container', styles.DescContainer)}>
+        <div className={styles.imgContainer}>
+          <img src={photo1.src} alt='photo from an urbex' />
+        </div>
+        <div className={classNames(styles.textContainer, 'container')}>
+          <p>
+            Urbex (z ang. urban exploration — eksploracja miejska) — forma
+            aktywności polegająca na eksplorowaniu opuszczonych, zrujnowanych,
+            zapomnianych, niedostępnych czy ukrytych budynków i instalacji
+            stworzonych przez człowieka. Celem osób uprawiających urbex jest
+            filmowanie, fotografowanie lub po prostu zdobywanie informacji
+            dotyczących danego miejsca. Wszystko odbywa się bez ingerencji w
+            jego stan, zgodnie z zasadą take only pictures, leave only footsteps
+            (zabierz tylko zdjęcia, zostaw tylko ślady stóp).
+          </p>
+        </div>
       </div>
-      <div className={styles.textContainer}>
-        <p>
-          Urbex (z ang. urban exploration — eksploracja miejska) — forma
-          aktywności polegająca na eksplorowaniu opuszczonych, zrujnowanych,
-          zapomnianych, niedostępnych czy ukrytych budynków i instalacji
-          stworzonych przez człowieka. Celem osób uprawiających urbex jest
-          filmowanie, fotografowanie lub po prostu zdobywanie informacji
-          dotyczących danego miejsca. Wszystko odbywa się bez ingerencji w jego
-          stan, zgodnie z zasadą take only pictures, leave only footsteps
-          (zabierz tylko zdjęcia, zostaw tylko ślady stóp).
-        </p>
-      </div>
-    </div>
+    </>
   );
 };
 
